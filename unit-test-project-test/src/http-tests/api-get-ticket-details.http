@@ -1,0 +1,14 @@
+### Get access token from CIAM via the internal app (nodejs API) for the subsequent API operations
+# @name GetAccessTokenFromCIAMInternal
+GET {{helperApiBaseUrl}}/security/token/{{environmentName}} HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+
+### Get ticket details by ID
+# @name GetTicketDetailsById
+@ticketId=631baacb-cc25-4191-874f-c0a9b785b08b
+GET {{usiApiBaseUrl}}/enrolment/tickets/{{ticketId}} HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+Ocp-Apim-Subscription-Key: {{apimSubscriptionKey}}
+Authorization: Bearer {{GetAccessTokenFromCIAMInternal.response.body.access_token}}

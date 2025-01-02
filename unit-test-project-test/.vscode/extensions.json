@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "humao.rest-client",
+    "pkief.material-icon-theme",
+    "dbaeumer.vscode-eslint",
+    "postman.postman-for-vscode",
+    "streetsidesoftware.code-spell-checker"
+  ]
+}

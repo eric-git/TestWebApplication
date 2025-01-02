@@ -1,0 +1,704 @@
+{
+  "info": {
+    "_postman_id": "8831d18d-8b4e-468e-9299-bd9ac7ab02da",
+    "name": "Testing Node.js APIs",
+    "description": "This collection is for local testing USI external APIs.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "34486565"
+  },
+  "item": [
+    {
+      "name": "Security",
+      "item": [
+        {
+          "name": "v1 - the deprecated version on 1 Jan last year",
+          "item": [
+            {
+              "name": "Get Client Assertion",
+              "item": [
+                {
+                  "name": "Operation",
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/security/assertion/:environment",
+                      "host": ["{{baseUrl}}"],
+                      "path": ["v1", "security", "assertion", ":environment"],
+                      "variable": [
+                        {
+                          "key": "environment",
+                          "value": "pprod",
+                          "type": "string",
+                          "description": "The target environment to access."
+                        }
+                      ]
+                    },
+                    "description": "Get the client_credential details by environment."
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Supported Methods",
+                  "request": {
+                    "method": "OPTIONS",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/security/assertion/:environment",
+                      "host": ["{{baseUrl}}"],
+                      "path": ["v1", "security", "assertion", ":environment"],
+                      "variable": [
+                        {
+                          "key": "environment",
+                          "value": "pprod"
+                        }
+                      ]
+                    },
+                    "description": "Get the supported methods of this operation."
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Header Info",
+                  "request": {
+                    "method": "HEAD",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/security/assertion/:environment",
+                      "host": ["{{baseUrl}}"],
+                      "path": ["v1", "security", "assertion", ":environment"],
+                      "variable": [
+                        {
+                          "key": "environment",
+                          "value": "pprod"
+                        }
+                      ]
+                    },
+                    "description": "Get the header info of this operation."
+                  },
+                  "response": []
+                }
+              ],
+              "description": "Get a client_assertion details based by environment."
+            },
+            {
+              "name": "Get Access Token",
+              "item": [
+                {
+                  "name": "Operation",
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/security/token/:environment",
+                      "host": ["{{baseUrl}}"],
+                      "path": ["v1", "security", "token", ":environment"],
+                      "variable": [
+                        {
+                          "key": "environment",
+                          "value": "pprod",
+                          "type": "string",
+                          "description": "The target environment to access."
+                        }
+                      ]
+                    },
+                    "description": "Get the access token from CIAM by environment."
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Supported Methods",
+                  "request": {
+                    "method": "OPTIONS",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/security/token/:environment",
+                      "host": ["{{baseUrl}}"],
+                      "path": ["v1", "security", "token", ":environment"],
+                      "variable": [
+                        {
+                          "key": "environment",
+                          "value": "pprod"
+                        }
+                      ]
+                    },
+                    "description": "Get the supported methods of this operation."
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Header Info",
+                  "request": {
+                    "method": "HEAD",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/security/token/:environment",
+                      "host": ["{{baseUrl}}"],
+                      "path": ["v1", "security", "token", ":environment"],
+                      "variable": [
+                        {
+                          "key": "environment",
+                          "value": "pprod"
+                        }
+                      ]
+                    },
+                    "description": "Get the header info of this operation."
+                  },
+                  "response": []
+                }
+              ],
+              "description": "Get the access token from CIAM by environment."
+            },
+            {
+              "name": "Decode Token or Assertion",
+              "item": [
+                {
+                  "name": "Operation - Decode a Client Assertion",
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "eyJraWQiOiJmZmEwNGQ0OS1lNzFiLTQxNGMtOTJjOC0xYmQwMDY5NDc1YjgiLCJhbGciOiJSUzI1NiIsIng1dCI6IkJvcXhvM0NRSDdoNXJOa05OdnJ3WHQxRDdIST0ifQ.eyJpc3MiOiI1YjA4YjM5YS1kNmI3LTRkZjctYTlmNi1jZjlhMmFlYjU5NTkiLCJzdWIiOiI1YjA4YjM5YS1kNmI3LTRkZjctYTlmNi1jZjlhMmFlYjU5NTkiLCJhdWQiOiJodHRwczovL2xvZ2luLm1pY3Jvc29mdG9ubGluZS5jb20vc2tpbGxzZ292YXVwcHJvZC5vbm1pY3Jvc29mdC5jb20vb2F1dGgyL3YyLjAvdG9rZW4iLCJpYXQiOjE3MzUxMDY1MTcsImV4cCI6MTczNTExMDExN30.cyxxQHJL8RLIQOyYqEnbNPH95ygeDm_IrCVQe7hongwp-LKEA4m9RwHjlMDdtiUdZZuRLhgMNzvPbYoP_B2LkXeQQR1agw7Nk_Py2tRG_wk_746_VDoOc9vVRy2xI4CQ9ZluTxldsnsf_rwuixOwUxiGvNP6byx7E7UPDDOs49QhwQs56HozrCr35qt48EXmeXsz8OMqumZIYq_gT9H86bxivOnEirfkZEsZPipdX9VKHzCMGShgrrlsGBr_jf5M3cY8wpIK3iocqa9IC-IlAyy8-fO9n82Ft0Uk-QJPB8GX7c-bHGc-HXuO-SgCXQHAOr1U5IELMyNx05Uy1MLI3Q",
+                      "options": {
+                        "raw": {
+                          "language": "text"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/security/decode",
+                      "host": ["{{baseUrl}}"],
+                      "path": ["v1", "security", "decode"]
+                    },
+                    "description": "Decode a client assertion."
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Operation - Decode an Access Token",
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6InoxcnNZSEhKOS04bWdndDRIc1p1OEJLa0JQdyJ9.eyJhdWQiOiJlNzU2NjNmYS1mNDUyLTQwMWUtODg1Yi1kYzRlMDlhZTlhNzAiLCJpc3MiOiJodHRwczovL2xvZ2luLm1pY3Jvc29mdG9ubGluZS5jb20vOWY3YTgyYTEtNTVlNi00ZjMwLTgxNzgtYTdhMGZjMzJiMGVhL3YyLjAiLCJpYXQiOjE3MzQ4Mzc5NTksIm5iZiI6MTczNDgzNzk1OSwiZXhwIjoxNzM0ODQxODU5LCJhaW8iOiJrMkJnWU9DOGJNWWR2cmIwN0g2UHhtcXRmOHo1SDZlOHJtQzdtM1hyazU2ZDZsdzlreHNBIiwiYXpwIjoiNWIwOGIzOWEtZDZiNy00ZGY3LWE5ZjYtY2Y5YTJhZWI1OTU5IiwiYXpwYWNyIjoiMiIsIm9pZCI6IjdlNWMwNjdkLWJkMDAtNGEwOC04OWM1LWE3ZTgwOGY4NTQxYiIsInJoIjoiMS5BVU1Bb1lKNm4tWlZNRS1CZUtlZ19ES3c2dnBqVnVkUzlCNUFpRnZjVGdtdW1uQkVBQUJEQUEuIiwic3ViIjoiN2U1YzA2N2QtYmQwMC00YTA4LTg5YzUtYTdlODA4Zjg1NDFiIiwidGlkIjoiOWY3YTgyYTEtNTVlNi00ZjMwLTgxNzgtYTdhMGZjMzJiMGVhIiwidXRpIjoiWFlFcjl3OWhqVWlIb1dmSHZFOGhBQSIsInZlciI6IjIuMCJ9.GwQvY9X5wmWtxBfoagFBQSFtPq4w9gHYKUzeBzi7N49-p4yrInBSR0pN0vo72sf2sWvTCU9sKv8W2LEEl9vXECPW3MP25KR62-7IuDA1v-NhThJ_EZ0WezD9_fJdTW7VTOUNUHwg6SUSPo2-82A1ogLBVFUDY2Z59CLa_NuNgIAW8yRu3xPaZ55WmaF7ZF_vcZRBqdPq9ocPQu7F3yXa80Ki9QKJ2qLC1iF-uOAlAyhXeN-0sGV9NtcbZdx_mghgH-5j8NCcop68CbjpC9Cx-Vh3Rzpq1VemKCfiDRNHsT8Xn-VPGDE38gJPkSiBLXyLMD8MzwmoZwAoF_Ur9wqRHQ",
+                      "options": {
+                        "raw": {
+                          "language": "text"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/security/decode",
+                      "host": ["{{baseUrl}}"],
+                      "path": ["v1", "security", "decode"]
+                    },
+                    "description": "Decode an access token."
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Supported Methods",
+                  "request": {
+                    "method": "OPTIONS",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/security/decode",
+                      "host": ["{{baseUrl}}"],
+                      "path": ["v1", "security", "decode"]
+                    },
+                    "description": "Get the supported methods of this operation."
+                  },
+                  "response": []
+                }
+              ],
+              "description": "Decode an access token or a client assertion."
+            }
+          ],
+          "description": "Test V1 - a deprecated version."
+        },
+        {
+          "name": "v2 - the sunset version on 1 Jan next year",
+          "item": [
+            {
+              "name": "Get Client Assertion",
+              "item": [
+                {
+                  "name": "Operation",
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/security/assertion/:environment",
+                      "host": ["{{baseUrl}}"],
+                      "path": ["v2", "security", "assertion", ":environment"],
+                      "variable": [
+                        {
+                          "key": "environment",
+                          "value": "pprod",
+                          "type": "string",
+                          "description": "The target environment to access."
+                        }
+                      ]
+                    },
+                    "description": "Get the client_credential details by environment."
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Supported Methods",
+                  "request": {
+                    "method": "OPTIONS",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/security/assertion/:environment",
+                      "host": ["{{baseUrl}}"],
+                      "path": ["v2", "security", "assertion", ":environment"],
+                      "variable": [
+                        {
+                          "key": "environment",
+                          "value": "pprod"
+                        }
+                      ]
+                    },
+                    "description": "Get the supported methods of this operation."
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Header Info",
+                  "request": {
+                    "method": "HEAD",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/security/assertion/:environment",
+                      "host": ["{{baseUrl}}"],
+                      "path": ["v2", "security", "assertion", ":environment"],
+                      "variable": [
+                        {
+                          "key": "environment",
+                          "value": "pprod"
+                        }
+                      ]
+                    },
+                    "description": "Get the header info of this operation."
+                  },
+                  "response": []
+                }
+              ],
+              "description": "Get the client_credential details by environment."
+            },
+            {
+              "name": "Get Access Token",
+              "item": [
+                {
+                  "name": "Operation",
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/security/token/:environment",
+                      "host": ["{{baseUrl}}"],
+                      "path": ["v2", "security", "token", ":environment"],
+                      "variable": [
+                        {
+                          "key": "environment",
+                          "value": "pprod",
+                          "type": "string",
+                          "description": "The target environment to access."
+                        }
+                      ]
+                    },
+                    "description": "Get the access token from CIAM by environment."
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Supported Methods",
+                  "request": {
+                    "method": "OPTIONS",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/security/token/:environment",
+                      "host": ["{{baseUrl}}"],
+                      "path": ["v2", "security", "token", ":environment"],
+                      "variable": [
+                        {
+                          "key": "environment",
+                          "value": "pprod"
+                        }
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Header Info",
+                  "request": {
+                    "method": "HEAD",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/security/token/:environment",
+                      "host": ["{{baseUrl}}"],
+                      "path": ["v2", "security", "token", ":environment"],
+                      "variable": [
+                        {
+                          "key": "environment",
+                          "value": "pprod"
+                        }
+                      ]
+                    },
+                    "description": "Get the header info of this operation."
+                  },
+                  "response": []
+                }
+              ],
+              "description": "Get an access token based on the environment specified."
+            },
+            {
+              "name": "Decode Token or Assertion",
+              "item": [
+                {
+                  "name": "Operation - Decode a Client Assertion",
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "eyJraWQiOiJmZmEwNGQ0OS1lNzFiLTQxNGMtOTJjOC0xYmQwMDY5NDc1YjgiLCJhbGciOiJSUzI1NiIsIng1dCI6IkJvcXhvM0NRSDdoNXJOa05OdnJ3WHQxRDdIST0ifQ.eyJpc3MiOiI1YjA4YjM5YS1kNmI3LTRkZjctYTlmNi1jZjlhMmFlYjU5NTkiLCJzdWIiOiI1YjA4YjM5YS1kNmI3LTRkZjctYTlmNi1jZjlhMmFlYjU5NTkiLCJhdWQiOiJodHRwczovL2xvZ2luLm1pY3Jvc29mdG9ubGluZS5jb20vc2tpbGxzZ292YXVwcHJvZC5vbm1pY3Jvc29mdC5jb20vb2F1dGgyL3YyLjAvdG9rZW4iLCJpYXQiOjE3MzUxMDY1MTcsImV4cCI6MTczNTExMDExN30.cyxxQHJL8RLIQOyYqEnbNPH95ygeDm_IrCVQe7hongwp-LKEA4m9RwHjlMDdtiUdZZuRLhgMNzvPbYoP_B2LkXeQQR1agw7Nk_Py2tRG_wk_746_VDoOc9vVRy2xI4CQ9ZluTxldsnsf_rwuixOwUxiGvNP6byx7E7UPDDOs49QhwQs56HozrCr35qt48EXmeXsz8OMqumZIYq_gT9H86bxivOnEirfkZEsZPipdX9VKHzCMGShgrrlsGBr_jf5M3cY8wpIK3iocqa9IC-IlAyy8-fO9n82Ft0Uk-QJPB8GX7c-bHGc-HXuO-SgCXQHAOr1U5IELMyNx05Uy1MLI3Q",
+                      "options": {
+                        "raw": {
+                          "language": "text"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/security/decode",
+                      "host": ["{{baseUrl}}"],
+                      "path": ["v2", "security", "decode"]
+                    },
+                    "description": "Decode a client assertion."
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Operation - Decode an Access Token",
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6InoxcnNZSEhKOS04bWdndDRIc1p1OEJLa0JQdyJ9.eyJhdWQiOiJlNzU2NjNmYS1mNDUyLTQwMWUtODg1Yi1kYzRlMDlhZTlhNzAiLCJpc3MiOiJodHRwczovL2xvZ2luLm1pY3Jvc29mdG9ubGluZS5jb20vOWY3YTgyYTEtNTVlNi00ZjMwLTgxNzgtYTdhMGZjMzJiMGVhL3YyLjAiLCJpYXQiOjE3MzQ4Mzc5NTksIm5iZiI6MTczNDgzNzk1OSwiZXhwIjoxNzM0ODQxODU5LCJhaW8iOiJrMkJnWU9DOGJNWWR2cmIwN0g2UHhtcXRmOHo1SDZlOHJtQzdtM1hyazU2ZDZsdzlreHNBIiwiYXpwIjoiNWIwOGIzOWEtZDZiNy00ZGY3LWE5ZjYtY2Y5YTJhZWI1OTU5IiwiYXpwYWNyIjoiMiIsIm9pZCI6IjdlNWMwNjdkLWJkMDAtNGEwOC04OWM1LWE3ZTgwOGY4NTQxYiIsInJoIjoiMS5BVU1Bb1lKNm4tWlZNRS1CZUtlZ19ES3c2dnBqVnVkUzlCNUFpRnZjVGdtdW1uQkVBQUJEQUEuIiwic3ViIjoiN2U1YzA2N2QtYmQwMC00YTA4LTg5YzUtYTdlODA4Zjg1NDFiIiwidGlkIjoiOWY3YTgyYTEtNTVlNi00ZjMwLTgxNzgtYTdhMGZjMzJiMGVhIiwidXRpIjoiWFlFcjl3OWhqVWlIb1dmSHZFOGhBQSIsInZlciI6IjIuMCJ9.GwQvY9X5wmWtxBfoagFBQSFtPq4w9gHYKUzeBzi7N49-p4yrInBSR0pN0vo72sf2sWvTCU9sKv8W2LEEl9vXECPW3MP25KR62-7IuDA1v-NhThJ_EZ0WezD9_fJdTW7VTOUNUHwg6SUSPo2-82A1ogLBVFUDY2Z59CLa_NuNgIAW8yRu3xPaZ55WmaF7ZF_vcZRBqdPq9ocPQu7F3yXa80Ki9QKJ2qLC1iF-uOAlAyhXeN-0sGV9NtcbZdx_mghgH-5j8NCcop68CbjpC9Cx-Vh3Rzpq1VemKCfiDRNHsT8Xn-VPGDE38gJPkSiBLXyLMD8MzwmoZwAoF_Ur9wqRHQ",
+                      "options": {
+                        "raw": {
+                          "language": "text"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/security/decode",
+                      "host": ["{{baseUrl}}"],
+                      "path": ["v2", "security", "decode"]
+                    },
+                    "description": "Decode an access token."
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Supported Methods",
+                  "request": {
+                    "method": "OPTIONS",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/security/decode",
+                      "host": ["{{baseUrl}}"],
+                      "path": ["v2", "security", "decode"]
+                    },
+                    "description": "Get the supported methods of this operation."
+                  },
+                  "response": []
+                }
+              ],
+              "description": "Decode an access token or a client assertion."
+            }
+          ],
+          "description": "Test V2 - a version with sunset defined."
+        },
+        {
+          "name": "v3 - the new version in parallel with V2",
+          "item": [
+            {
+              "name": "Get Client Assertion",
+              "item": [
+                {
+                  "name": "Operation",
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/v3/security/assertion/:environment",
+                      "host": ["{{baseUrl}}"],
+                      "path": ["v3", "security", "assertion", ":environment"],
+                      "variable": [
+                        {
+                          "key": "environment",
+                          "value": "pprod",
+                          "type": "string",
+                          "description": "The target environment to access."
+                        }
+                      ]
+                    },
+                    "description": "Get the client_credential details by environment."
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Supported Methods",
+                  "request": {
+                    "method": "OPTIONS",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/v3/security/assertion/:environment",
+                      "host": ["{{baseUrl}}"],
+                      "path": ["v3", "security", "assertion", ":environment"],
+                      "variable": [
+                        {
+                          "key": "environment",
+                          "value": "pprod"
+                        }
+                      ]
+                    },
+                    "description": "Get the supported methods of this operation."
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Header Info",
+                  "request": {
+                    "method": "HEAD",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/v3/security/assertion/:environment",
+                      "host": ["{{baseUrl}}"],
+                      "path": ["v3", "security", "assertion", ":environment"],
+                      "variable": [
+                        {
+                          "key": "environment",
+                          "value": "pprod"
+                        }
+                      ]
+                    },
+                    "description": "Get the header info of this operation."
+                  },
+                  "response": []
+                }
+              ],
+              "description": "Get the client_credential details by environment."
+            },
+            {
+              "name": "Get Access Token",
+              "item": [
+                {
+                  "name": "Operation",
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/v3/security/token/:environment",
+                      "host": ["{{baseUrl}}"],
+                      "path": ["v3", "security", "token", ":environment"],
+                      "variable": [
+                        {
+                          "key": "environment",
+                          "value": "pprod",
+                          "type": "string",
+                          "description": "The target environment to access."
+                        }
+                      ]
+                    },
+                    "description": "Get the access token from CIAM by environment."
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Supported Methods",
+                  "request": {
+                    "method": "OPTIONS",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/v3/security/token/:environment",
+                      "host": ["{{baseUrl}}"],
+                      "path": ["v3", "security", "token", ":environment"],
+                      "variable": [
+                        {
+                          "key": "environment",
+                          "value": "pprod"
+                        }
+                      ]
+                    },
+                    "description": "Get the supported methods of this operation."
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Header Info",
+                  "request": {
+                    "method": "HEAD",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/v3/security/token/:environment",
+                      "host": ["{{baseUrl}}"],
+                      "path": ["v3", "security", "token", ":environment"],
+                      "variable": [
+                        {
+                          "key": "environment",
+                          "value": "pprod"
+                        }
+                      ]
+                    },
+                    "description": "Get the header info of this operation."
+                  },
+                  "response": []
+                }
+              ],
+              "description": "Get the access token from CIAM by environment."
+            },
+            {
+              "name": "Decode Token or Assertion",
+              "item": [
+                {
+                  "name": "Operation - Decode a Client Assertion",
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "eyJraWQiOiJmZmEwNGQ0OS1lNzFiLTQxNGMtOTJjOC0xYmQwMDY5NDc1YjgiLCJhbGciOiJSUzI1NiIsIng1dCI6IkJvcXhvM0NRSDdoNXJOa05OdnJ3WHQxRDdIST0ifQ.eyJpc3MiOiI1YjA4YjM5YS1kNmI3LTRkZjctYTlmNi1jZjlhMmFlYjU5NTkiLCJzdWIiOiI1YjA4YjM5YS1kNmI3LTRkZjctYTlmNi1jZjlhMmFlYjU5NTkiLCJhdWQiOiJodHRwczovL2xvZ2luLm1pY3Jvc29mdG9ubGluZS5jb20vc2tpbGxzZ292YXVwcHJvZC5vbm1pY3Jvc29mdC5jb20vb2F1dGgyL3YyLjAvdG9rZW4iLCJpYXQiOjE3MzUxMDY1MTcsImV4cCI6MTczNTExMDExN30.cyxxQHJL8RLIQOyYqEnbNPH95ygeDm_IrCVQe7hongwp-LKEA4m9RwHjlMDdtiUdZZuRLhgMNzvPbYoP_B2LkXeQQR1agw7Nk_Py2tRG_wk_746_VDoOc9vVRy2xI4CQ9ZluTxldsnsf_rwuixOwUxiGvNP6byx7E7UPDDOs49QhwQs56HozrCr35qt48EXmeXsz8OMqumZIYq_gT9H86bxivOnEirfkZEsZPipdX9VKHzCMGShgrrlsGBr_jf5M3cY8wpIK3iocqa9IC-IlAyy8-fO9n82Ft0Uk-QJPB8GX7c-bHGc-HXuO-SgCXQHAOr1U5IELMyNx05Uy1MLI3Q",
+                      "options": {
+                        "raw": {
+                          "language": "text"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v3/security/decode",
+                      "host": ["{{baseUrl}}"],
+                      "path": ["v3", "security", "decode"]
+                    },
+                    "description": "Decode a client assertion."
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Operation - Decode an Access Token",
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6InoxcnNZSEhKOS04bWdndDRIc1p1OEJLa0JQdyJ9.eyJhdWQiOiJlNzU2NjNmYS1mNDUyLTQwMWUtODg1Yi1kYzRlMDlhZTlhNzAiLCJpc3MiOiJodHRwczovL2xvZ2luLm1pY3Jvc29mdG9ubGluZS5jb20vOWY3YTgyYTEtNTVlNi00ZjMwLTgxNzgtYTdhMGZjMzJiMGVhL3YyLjAiLCJpYXQiOjE3MzQ4Mzc5NTksIm5iZiI6MTczNDgzNzk1OSwiZXhwIjoxNzM0ODQxODU5LCJhaW8iOiJrMkJnWU9DOGJNWWR2cmIwN0g2UHhtcXRmOHo1SDZlOHJtQzdtM1hyazU2ZDZsdzlreHNBIiwiYXpwIjoiNWIwOGIzOWEtZDZiNy00ZGY3LWE5ZjYtY2Y5YTJhZWI1OTU5IiwiYXpwYWNyIjoiMiIsIm9pZCI6IjdlNWMwNjdkLWJkMDAtNGEwOC04OWM1LWE3ZTgwOGY4NTQxYiIsInJoIjoiMS5BVU1Bb1lKNm4tWlZNRS1CZUtlZ19ES3c2dnBqVnVkUzlCNUFpRnZjVGdtdW1uQkVBQUJEQUEuIiwic3ViIjoiN2U1YzA2N2QtYmQwMC00YTA4LTg5YzUtYTdlODA4Zjg1NDFiIiwidGlkIjoiOWY3YTgyYTEtNTVlNi00ZjMwLTgxNzgtYTdhMGZjMzJiMGVhIiwidXRpIjoiWFlFcjl3OWhqVWlIb1dmSHZFOGhBQSIsInZlciI6IjIuMCJ9.GwQvY9X5wmWtxBfoagFBQSFtPq4w9gHYKUzeBzi7N49-p4yrInBSR0pN0vo72sf2sWvTCU9sKv8W2LEEl9vXECPW3MP25KR62-7IuDA1v-NhThJ_EZ0WezD9_fJdTW7VTOUNUHwg6SUSPo2-82A1ogLBVFUDY2Z59CLa_NuNgIAW8yRu3xPaZ55WmaF7ZF_vcZRBqdPq9ocPQu7F3yXa80Ki9QKJ2qLC1iF-uOAlAyhXeN-0sGV9NtcbZdx_mghgH-5j8NCcop68CbjpC9Cx-Vh3Rzpq1VemKCfiDRNHsT8Xn-VPGDE38gJPkSiBLXyLMD8MzwmoZwAoF_Ur9wqRHQ",
+                      "options": {
+                        "raw": {
+                          "language": "text"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v3/security/decode",
+                      "host": ["{{baseUrl}}"],
+                      "path": ["v3", "security", "decode"]
+                    },
+                    "description": "Decode an access token."
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Supported Methods",
+                  "request": {
+                    "method": "OPTIONS",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/v3/security/decode",
+                      "host": ["{{baseUrl}}"],
+                      "path": ["v3", "security", "decode"]
+                    },
+                    "description": "Get the supported methods of this operation."
+                  },
+                  "response": []
+                }
+              ],
+              "description": "Decode an access token or a client assertion."
+            }
+          ],
+          "description": "Test V3 - a new version to be used after V2 sunset."
+        }
+      ],
+      "description": "Security related helper operations."
+    },
+    {
+      "name": "Health Check - Operation",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}",
+          "host": ["{{baseUrl}}"]
+        },
+        "description": "Health check the local hosted Node.js API."
+      },
+      "response": []
+    },
+    {
+      "name": "Health Check - Supported Methods",
+      "request": {
+        "method": "OPTIONS",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}",
+          "host": ["{{baseUrl}}"]
+        },
+        "description": "Get the supported methods of this operation."
+      },
+      "response": []
+    },
+    {
+      "name": "Health Check - Header Info",
+      "request": {
+        "method": "HEAD",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}",
+          "host": ["{{baseUrl}}"]
+        },
+        "description": "Get the header info of this operation."
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "exec": [""]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "exec": [""]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:2025/api",
+      "type": "string"
+    }
+  ]
+}

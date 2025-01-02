@@ -1,0 +1,18 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "words": [
+    "ageid",
+    "apim",
+    "ciam",
+    "nonprod",
+    "onmicrosoft",
+    "pprod",
+    "prerequest",
+    "skillsgovau",
+    "skillsgovaudevtest",
+    "skillsgovaupprod",
+    "skillsgovausandpit"
+  ],
+  "ignorePaths": ["node_modules/**", "./src/assets/**", "./src/http-tests/**"]
+}

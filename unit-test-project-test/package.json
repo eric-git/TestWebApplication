@@ -1,0 +1,59 @@
+{
+  "name": "api-test",
+  "version": "1.0.0",
+  "description": "USI school external Web API unit test",
+  "type": "commonjs",
+  "main": "./src/app.js",
+  "scripts": {
+    "prestart": "npm install --no-fund",
+    "start": "nodemon",
+    "lint": "eslint",
+    "prettier": "prettier --write .",
+    "spell": "cspell **"
+  },
+  "engines": {
+    "node": ">=22.12.0",
+    "npm": ">=10.9.0"
+  },
+  "keywords": [
+    "USI",
+    "School",
+    "M2M",
+    "Web API",
+    "Unit Test",
+    "OAUTH2"
+  ],
+  "author": {
+    "name": "Eric Wu",
+    "email": "eric.wu@dewr.gov.au",
+    "url": "https://cd.hosts.application.enet/person/details/ew2848"
+  },
+  "contributors": [
+    {
+      "name": "Eric Wu",
+      "email": "wu_yuqing@hotmail.com",
+      "url": "https://github.com/eric-git"
+    }
+  ],
+  "license": "ISC",
+  "dependencies": {
+    "@xmldom/xmldom": "^0.9.6",
+    "axios": "^1.7.9",
+    "cache-manager": "^6.3.2",
+    "commander": "^13.0.0",
+    "express": "^5.0.1",
+    "express-validator": "^7.2.1",
+    "xpath": "^0.0.34"
+  },
+  "devDependencies": {
+    "@cspell/eslint-plugin": "^8.17.1",
+    "@eslint/js": "^9.17.0",
+    "cspell": "^8.17.1",
+    "eslint": "^9.17.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "globals": "^15.14.0",
+    "nodemon": "^3.1.9",
+    "prettier": "^3.4.2"
+  }
+}

@@ -1,0 +1,29 @@
+### Get access token from CIAM via the internal app (nodejs API) for the subsequent API operations
+# @name GetAccessTokenFromCIAMInternal
+GET {{helperApiBaseUrl}}/security/token/{{environmentName}} HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+
+### Bulk confirm USI
+# @name BulkConfirmUsi
+POST {{usiApiBaseUrl}}/student/confirm/bulk HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+Ocp-Apim-Subscription-Key: {{apimSubscriptionKey}}
+Authorization: Bearer {{GetAccessTokenFromCIAMInternal.response.body.access_token}}
+
+{
+    "data": [
+        {
+            "usi": "RKXLNKY77F",
+            "given_name": "Dominic",
+            "family_name": "Swofford",
+            "date_of_birth": "2000-03-14"
+        },
+        {
+            "usi": "PDHGZTVB6Y",
+            "single_name": "FREY",
+            "date_of_birth": "2011-11-11"
+        }
+    ]
+}
