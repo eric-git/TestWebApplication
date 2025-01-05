@@ -1,11 +1,7 @@
 "use strict";
-require("./setup.js");
-
 const { Command, Option } = require("commander");
-const { environments } = require(`${appRoot}/modules/configuration.js`);
-const { getSignedClientAssertionAsync } = require(
-  `${appRoot}/modules/security.js`,
-);
+const { environments } = require("../modules/configuration");
+const { getSignedClientAssertionAsync } = require("../modules/security");
 
 const program = new Command();
 program

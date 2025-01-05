@@ -1,13 +1,10 @@
 "use strict";
 const { readFileSync } = require("fs");
+const { join } = require("path");
 const { useNamespaces } = require("xpath");
 const { DOMParser } = require("@xmldom/xmldom");
-const { getConfigurationByEnvironmentName } = require(
-  `${appRoot}/modules/configuration.js`,
-);
-const { cache, getKeystoreDataCacheKey } = require(
-  `${appRoot}/modules/caching.js`,
-);
+const { getConfigurationByEnvironmentName } = require("./configuration");
+const { cache, getKeystoreDataCacheKey } = require("./caching");
 
 const xpathSelect = useNamespaces({
   sbr: "http://auth.abr.gov.au/credential/xsd/SBRCredentialStore",
@@ -23,9 +20,10 @@ const getKeystoreDataAsync = async (environmentName) => {
   if (cachedData) {
     return cachedData;
   }
-  const xml = readFileSync(`${appRoot}/assets/${machineKeystoreFileName}`, {
-    encoding: "utf8",
-  });
+  const xml = readFileSync(
+    join(__dirname, "../", "assets", "keystores", machineKeystoreFileName),
+    { encoding: "utf8" },
+  );
   const document = new DOMParser().parseFromString(xml, "text/xml");
   const rootElement = document.documentElement;
   const credential = xpathSelect(
@@ -44,16 +42,23 @@ const getKeystoreDataAsync = async (environmentName) => {
     data[salt.nodeName] = salt.textContent;
   }
   [...credential.attributes, ...credential.childNodes].forEach((x) => {
+    let name;
+    let value;
     if (x.nodeType === 1) {
-      data[x.nodeName] = dateTimeFields.includes(x.nodeName)
-        ? new Date(x.textContent)
-        : x.textContent;
+      name = x.nodeName;
+      value = x.textContent;
     } else if (x.nodeType === 2) {
-      data[x.name] = x.value;
+      name = x.name;
+      value = x.value;
+    } else {
+      return;
     }
+    data[name] =
+      dateTimeFields.includes(name) && value ? new Date(value) : value;
   });
-  await cache.set(cacheKey, data);
-  return data;
+  const recordData = Object.freeze(data);
+  await cache.set(cacheKey, recordData);
+  return recordData;
 };
 
 module.exports = {

@@ -5,9 +5,10 @@
   "type": "commonjs",
   "main": "./src/app.js",
   "scripts": {
-    "prestart": "npm install --no-fund",
-    "start": "nodemon",
+    "sync": "node ./scripts/sync-config.js",
     "lint": "eslint",
+    "prestart": "npm install --no-fund && npm run sync && npm run prettier && npm run lint",
+    "start": "nodemon",
     "prettier": "prettier --write .",
     "spell": "cspell **"
   },

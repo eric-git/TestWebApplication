@@ -699,7 +699,7 @@
   "variable": [
     {
       "key": "baseUrl",
-      "value": "http://localhost:2025/api",
+      "value": "https://localhost:2025/api",
       "type": "string"
     }
   ]

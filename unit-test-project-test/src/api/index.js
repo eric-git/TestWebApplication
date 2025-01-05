@@ -1,12 +1,16 @@
 "use strict";
 const express = require("express");
 const { URL } = require("url");
-const { sharedSettings } = require(`${appRoot}/modules/configuration.js`);
-const { notFoundHandler, serverErrorHandler } = require(
-  `${appRoot}/api/middleware/error-handlers.js`,
-);
-const { commonRouter } = require(`${appRoot}/api/controllers/common/route.js`);
-const { securityRouters } = require(`${appRoot}/api/controllers/security/route.js`);
+const { join } = require("path");
+const { createServer } = require("https");
+const { readFileSync } = require("fs");
+const { sharedSettings } = require("../modules/configuration");
+const {
+  notFoundHandler,
+  serverErrorHandler,
+} = require("./middleware/error-handlers");
+const { commonRouter } = require("./controllers/common/route");
+const { securityRouters } = require("./controllers/security/route");
 
 const app = express();
 app.use(express.text());
@@ -15,11 +19,16 @@ app.use(express.json());
 app.use("/api", commonRouter, securityRouters);
 app.use(notFoundHandler, serverErrorHandler);
 
-const helperApiBaseUrl = new URL(sharedSettings.helperApiBaseUrl);
-const port =
-  helperApiBaseUrl.port || (helperApiBaseUrl.protocol === "http:" ? 80 : 443);
-const server = app.listen(port, () => {
-  console.log(`Server is listening on port: ${port}`);
+const { protocol, host, port } = new URL(sharedSettings.helperApiBaseUrl);
+const certPath = join(__dirname, "assets");
+const server = createServer(
+  {
+    key: readFileSync(join(certPath, "server.key")),
+    cert: readFileSync(join(certPath, "server.cert")),
+  },
+  app,
+).listen(port, () => {
+  console.log("The API server is running on:", `${protocol}//${host}.`);
 });
 
 const shutDown = () => {

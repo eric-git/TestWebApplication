@@ -1,14 +1,9 @@
 "use strict";
-const express = require("express");
-const { healthCheck } = require(
-  `${appRoot}/api/controllers/common/controller.js`,
-);
-const { healthCheckValidator } = require(
-  `${appRoot}/api/controllers/common/validator.js`,
-);
+const { Router } = require("express");
+const { healthCheck } = require("./controller");
 
-const commonRouter = express.Router();
-commonRouter.get("/", healthCheckValidator, healthCheck);
+const commonRouter = Router();
+commonRouter.get("/", healthCheck);
 
 module.exports = {
   commonRouter,

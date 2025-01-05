@@ -3,13 +3,11 @@ const {
   getSignedClientAssertionAsync,
   getClientAccessTokenAsync,
   getDecodedTokenOrClientAssertion,
-} = require(`${appRoot}/modules/security.js`);
-const { cache, getAccessTokenCacheKey } = require(
-  `${appRoot}/modules/caching.js`,
-);
-const { getConfigurationByEnvironmentName } = require(
-  `${appRoot}/modules/configuration.js`,
-);
+} = require("../../../modules/security");
+const { cache, getAccessTokenCacheKey } = require("../../../modules/caching");
+const {
+  getConfigurationByEnvironmentName,
+} = require("../../../modules/configuration");
 
 const getClientAssertionAsync = async (
   { params: { environment } },
@@ -20,8 +18,8 @@ const getClientAssertionAsync = async (
 };
 
 const getAccessTokenAsync = async ({ params: { environment } }, response) => {
-  const accessTokenResponse = await getClientAccessTokenAsync(environment);
-  response.status(accessTokenResponse.status).json(accessTokenResponse.data);
+  const { status, data } = await getClientAccessTokenAsync(environment);
+  response.status(status).json(data);
 };
 
 const getAccessTokenV3Async = async (
@@ -40,7 +38,7 @@ const getAccessTokenV3Async = async (
     if (tokenData && tokenData.access_token) {
       await cache.set(
         cacheKey,
-        accessTokenResponse,
+        Object.freeze(accessTokenResponse),
         (tokenData.expires_in - 59) * 1000,
       );
     }

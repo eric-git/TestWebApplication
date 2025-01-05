@@ -1,10 +1,6 @@
 "use strict";
-require("./setup.js");
-
 const { Command, Option } = require("commander");
-const { getDecodedTokenOrClientAssertion } = require(
-  `${appRoot}/modules/security.js`,
-);
+const { getDecodedTokenOrClientAssertion } = require("../modules/security");
 
 const program = new Command();
 program

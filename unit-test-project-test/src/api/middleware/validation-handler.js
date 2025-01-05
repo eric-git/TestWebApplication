@@ -9,4 +9,6 @@ const validationHandler = (request, response, next) => {
   next();
 };
 
-module.exports = { validationHandler };
+module.exports = {
+  validationHandler,
+};

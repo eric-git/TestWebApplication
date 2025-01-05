@@ -1,49 +1,46 @@
 "use strict";
-const express = require("express");
+const { Router } = require("express");
 const {
   getAccessTokenAsync,
   getAccessTokenV3Async,
   getClientAssertionAsync,
   getDecodedToken,
-} = require(`${appRoot}/api/controllers/security/controller.js`);
+} = require("./controller");
 const {
   clientAssertionValidator,
   accessTokenValidator,
   accessTokenV3Validator,
   decodedTokenValidator,
-} = require(`${appRoot}/api/controllers/security/validator.js`);
-const { versionHandler } = require(
-  `${appRoot}/api/middleware/version-handler.js`,
-);
+} = require("./validator");
+const { versionHandler } = require("../../middleware/version-handler");
+const { validationHandler } = require("../../middleware/validation-handler");
+const { versionInfo } = require("../../shared/version-info");
 
-const year = new Date().getFullYear();
-const versionInfo = [
-  { version: 1, sunsetDate: new Date(year - 1, 0, 1) },
-  { version: 2, sunsetDate: new Date(year + 1, 0, 1) },
-  { version: 3 },
-];
 const securityRouters = versionInfo.map((x) => {
-  const securityRouter = express.Router();
+  const securityRouter = Router();
   const prefix = `/v${x.version}/security`;
-  const versionMiddleware = versionHandler(versionInfo, x.version);
+  const versionMiddleware = versionHandler(x.version);
   switch (x.version) {
     case 1:
       securityRouter.get(
         `${prefix}/token/:environment`,
         versionMiddleware,
         accessTokenValidator,
+        validationHandler,
         getAccessTokenAsync,
       );
       securityRouter.get(
         `${prefix}/assertion/:environment`,
         versionMiddleware,
         clientAssertionValidator,
+        validationHandler,
         getClientAssertionAsync,
       );
       securityRouter.post(
         `${prefix}/decode`,
         versionMiddleware,
         decodedTokenValidator,
+        validationHandler,
         getDecodedToken,
       );
       break;
@@ -52,18 +49,21 @@ const securityRouters = versionInfo.map((x) => {
         `${prefix}/token/:environment`,
         versionMiddleware,
         accessTokenValidator,
+        validationHandler,
         getAccessTokenAsync,
       );
       securityRouter.get(
         `${prefix}/assertion/:environment`,
         versionMiddleware,
         clientAssertionValidator,
+        validationHandler,
         getClientAssertionAsync,
       );
       securityRouter.post(
         `${prefix}/decode`,
         versionMiddleware,
         decodedTokenValidator,
+        validationHandler,
         getDecodedToken,
       );
       break;
@@ -72,18 +72,21 @@ const securityRouters = versionInfo.map((x) => {
         `${prefix}/token/:environment`,
         versionMiddleware,
         accessTokenV3Validator,
+        validationHandler,
         getAccessTokenV3Async,
       );
       securityRouter.get(
         `${prefix}/assertion/:environment`,
         versionMiddleware,
         clientAssertionValidator,
+        validationHandler,
         getClientAssertionAsync,
       );
       securityRouter.post(
         `${prefix}/decode`,
         versionMiddleware,
         decodedTokenValidator,
+        validationHandler,
         getDecodedToken,
       );
       break;

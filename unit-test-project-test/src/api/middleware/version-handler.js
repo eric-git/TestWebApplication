@@ -1,5 +1,7 @@
 "use strict";
-const versionHandler = (versionInfo, version) => {
+const { versionInfo } = require("../shared/version-info");
+
+const versionHandler = (version) => {
   return (_, response, next) => {
     if (!Array.isArray(versionInfo)) {
       return next();
@@ -40,4 +42,6 @@ const versionHandler = (versionInfo, version) => {
   };
 };
 
-module.exports = { versionHandler };
+module.exports = {
+  versionHandler,
+};

@@ -1,5 +1,5 @@
 "use strict";
-const { environments } = require(`${appRoot}/modules/configuration.js`);
+const { environments } = require("../../modules/configuration");
 
 const errorMessages = {
   environmentOutOfRange: `The environment name for the client assertion must be one of ${environments.map((x) => `'${x}'`).join(", ")}.`,
@@ -10,5 +10,5 @@ const errorMessages = {
 };
 
 module.exports = {
-  errorMessages,
+  errorMessages: Object.freeze(errorMessages),
 };

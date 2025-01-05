@@ -2,14 +2,61 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "Helper API",
       "console": "integratedTerminal",
       "internalConsoleOptions": "neverOpen",
-      "name": "Local debug",
       "request": "launch",
-      "restart": true,
+      "preLaunchTask": "npm: prestart",
+      "type": "node",
       "runtimeExecutable": "nodemon",
-      "skipFiles": ["<node_internals>/**"],
-      "type": "node"
+      "restart": true,
+      "skipFiles": ["<node_internals>/**"]
+    },
+    {
+      "name": "Get client assertion",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "request": "launch",
+      "preLaunchTask": "npm: prestart",
+      "type": "node",
+      "program": "${workspaceFolder}/src/tools/get-client-assertion.js",
+      "args": ["-e", "pprod"]
+    },
+    {
+      "name": "Get access token",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "request": "launch",
+      "preLaunchTask": "npm: prestart",
+      "type": "node",
+      "program": "${workspaceFolder}/src/tools/get-access-token.js",
+      "args": ["-e", "pprod"]
+    },
+    {
+      "name": "Decode client assertion",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "request": "launch",
+      "preLaunchTask": "npm: prestart",
+      "type": "node",
+      "program": "${workspaceFolder}/src/tools/get-decoded-token.js",
+      "args": [
+        "-d",
+        "eyJraWQiOiJmZmEwNGQ0OS1lNzFiLTQxNGMtOTJjOC0xYmQwMDY5NDc1YjgiLCJhbGciOiJSUzI1NiIsIng1dCI6IkJvcXhvM0NRSDdoNXJOa05OdnJ3WHQxRDdIST0ifQ.eyJpc3MiOiI1YjA4YjM5YS1kNmI3LTRkZjctYTlmNi1jZjlhMmFlYjU5NTkiLCJzdWIiOiI1YjA4YjM5YS1kNmI3LTRkZjctYTlmNi1jZjlhMmFlYjU5NTkiLCJhdWQiOiJodHRwczovL2xvZ2luLm1pY3Jvc29mdG9ubGluZS5jb20vc2tpbGxzZ292YXVwcHJvZC5vbm1pY3Jvc29mdC5jb20vb2F1dGgyL3YyLjAvdG9rZW4iLCJpYXQiOjE3MzUxMDY1MTcsImV4cCI6MTczNTExMDExN30.cyxxQHJL8RLIQOyYqEnbNPH95ygeDm_IrCVQe7hongwp-LKEA4m9RwHjlMDdtiUdZZuRLhgMNzvPbYoP_B2LkXeQQR1agw7Nk_Py2tRG_wk_746_VDoOc9vVRy2xI4CQ9ZluTxldsnsf_rwuixOwUxiGvNP6byx7E7UPDDOs49QhwQs56HozrCr35qt48EXmeXsz8OMqumZIYq_gT9H86bxivOnEirfkZEsZPipdX9VKHzCMGShgrrlsGBr_jf5M3cY8wpIK3iocqa9IC-IlAyy8-fO9n82Ft0Uk-QJPB8GX7c-bHGc-HXuO-SgCXQHAOr1U5IELMyNx05Uy1MLI3Q"
+      ]
+    },
+    {
+      "name": "Decode access token",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "request": "launch",
+      "preLaunchTask": "npm: prestart",
+      "type": "node",
+      "program": "${workspaceFolder}/src/tools/get-decoded-token.js",
+      "args": [
+        "-d",
+        "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6InoxcnNZSEhKOS04bWdndDRIc1p1OEJLa0JQdyJ9.eyJhdWQiOiJlNzU2NjNmYS1mNDUyLTQwMWUtODg1Yi1kYzRlMDlhZTlhNzAiLCJpc3MiOiJodHRwczovL2xvZ2luLm1pY3Jvc29mdG9ubGluZS5jb20vOWY3YTgyYTEtNTVlNi00ZjMwLTgxNzgtYTdhMGZjMzJiMGVhL3YyLjAiLCJpYXQiOjE3MzQ4Mzc5NTksIm5iZiI6MTczNDgzNzk1OSwiZXhwIjoxNzM0ODQxODU5LCJhaW8iOiJrMkJnWU9DOGJNWWR2cmIwN0g2UHhtcXRmOHo1SDZlOHJtQzdtM1hyazU2ZDZsdzlreHNBIiwiYXpwIjoiNWIwOGIzOWEtZDZiNy00ZGY3LWE5ZjYtY2Y5YTJhZWI1OTU5IiwiYXpwYWNyIjoiMiIsIm9pZCI6IjdlNWMwNjdkLWJkMDAtNGEwOC04OWM1LWE3ZTgwOGY4NTQxYiIsInJoIjoiMS5BVU1Bb1lKNm4tWlZNRS1CZUtlZ19ES3c2dnBqVnVkUzlCNUFpRnZjVGdtdW1uQkVBQUJEQUEuIiwic3ViIjoiN2U1YzA2N2QtYmQwMC00YTA4LTg5YzUtYTdlODA4Zjg1NDFiIiwidGlkIjoiOWY3YTgyYTEtNTVlNi00ZjMwLTgxNzgtYTdhMGZjMzJiMGVhIiwidXRpIjoiWFlFcjl3OWhqVWlIb1dmSHZFOGhBQSIsInZlciI6IjIuMCJ9.GwQvY9X5wmWtxBfoagFBQSFtPq4w9gHYKUzeBzi7N49-p4yrInBSR0pN0vo72sf2sWvTCU9sKv8W2LEEl9vXECPW3MP25KR62-7IuDA1v-NhThJ_EZ0WezD9_fJdTW7VTOUNUHwg6SUSPo2-82A1ogLBVFUDY2Z59CLa_NuNgIAW8yRu3xPaZ55WmaF7ZF_vcZRBqdPq9ocPQu7F3yXa80Ki9QKJ2qLC1iF-uOAlAyhXeN-0sGV9NtcbZdx_mghgH-5j8NCcop68CbjpC9Cx-Vh3Rzpq1VemKCfiDRNHsT8Xn-VPGDE38gJPkSiBLXyLMD8MzwmoZwAoF_Ur9wqRHQ"
+      ]
     }
   ]
 }
