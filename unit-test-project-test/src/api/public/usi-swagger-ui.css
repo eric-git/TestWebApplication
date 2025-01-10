@@ -1,0 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+body,
+.swagger-ui * {
+  font-family: "Montserrat", serif !important;
+}
+
+.topbar .link {
+  background: url("usi_5_rbg.svg") no-repeat;
+  background-size: contain;
+  background-position: center;
+  height: 4rem;
+  filter: contrast(200%);
+  cursor: pointer;
+}
+
+.theme-picker-wrapper {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin: 0.5rem 1rem;
+}
+
+.topbar .link * {
+  display: none;
+}

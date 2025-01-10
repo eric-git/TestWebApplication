@@ -1,14 +1,10 @@
 "use strict";
-require("./setup.js");
-
 const { Command, Option } = require("commander");
-const { environments } = require(`${appRoot}/modules/configuration.js`);
-const { getSignedClientAssertionAsync } = require(
-  `${appRoot}/modules/security.js`,
-);
+const { environments } = require("../modules/configuration");
+const { getSignedClientAssertionAsync } = require("../modules/security");
 
-const program = new Command();
-program
+const command = new Command();
+command
   .name(__filename)
   .description(
     "Get the client_assertion for access token requests, based on the specified environment settings.",
@@ -23,7 +19,7 @@ program
       .makeOptionMandatory(),
   )
   .action(async () => {
-    const { environment } = program.opts();
+    const { environment } = command.opts();
     const assertion = await getSignedClientAssertionAsync(environment);
     console.log(assertion);
   })

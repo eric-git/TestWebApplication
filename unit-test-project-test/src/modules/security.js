@@ -1,10 +1,8 @@
 "use strict";
 const axios = require("axios");
 const { createPrivateKey, createSign, randomUUID } = require("crypto");
-const { getKeystoreDataAsync } = require(`${appRoot}/modules/keystore.js`);
-const { getConfigurationByEnvironmentName } = require(
-  `${appRoot}/modules/configuration.js`,
-);
+const { getKeystoreDataAsync } = require("./keystore");
+const { getConfigurationByEnvironmentName } = require("./configuration");
 
 const jsonToBase64url = (data) => {
   const stringData = JSON.stringify(data);
@@ -59,9 +57,8 @@ const getSignedClientAssertionAsync = async (environmentName) => {
     passphrase: machinePassword,
   });
   const signature = sign.sign(privateKey, "base64url");
-  const client_assertion = `${assertionToSign}.${signature}`;
   return {
-    client_assertion: client_assertion,
+    client_assertion: `${assertionToSign}.${signature}`,
     original_data: {
       header: header,
       payload: payload,

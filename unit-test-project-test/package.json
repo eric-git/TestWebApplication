@@ -5,9 +5,10 @@
   "type": "commonjs",
   "main": "./src/app.js",
   "scripts": {
-    "prestart": "npm install --no-fund",
-    "start": "nodemon",
+    "sync": "node ./scripts/sync-config.js",
     "lint": "eslint",
+    "prestart": "npm install --no-fund && npm run sync && npm run prettier && npm run lint",
+    "start": "nodemon",
     "prettier": "prettier --write .",
     "spell": "cspell **"
   },
@@ -43,7 +44,14 @@
     "commander": "^13.0.0",
     "express": "^5.0.1",
     "express-validator": "^7.2.1",
-    "xpath": "^0.0.34"
+    "glob": "^11.0.0",
+    "serve-favicon": "^2.5.0",
+    "serve-static": "^2.1.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-themes": "^1.4.3",
+    "swagger-ui-express": "^5.0.1",
+    "xpath": "^0.0.34",
+    "yaml": "^2.7.0"
   },
   "devDependencies": {
     "@cspell/eslint-plugin": "^8.17.1",

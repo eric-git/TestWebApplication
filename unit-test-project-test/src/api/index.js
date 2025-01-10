@@ -1,25 +1,40 @@
 "use strict";
 const express = require("express");
+const favicon = require("serve-favicon");
 const { URL } = require("url");
-const { sharedSettings } = require(`${appRoot}/modules/configuration.js`);
-const { notFoundHandler, serverErrorHandler } = require(
-  `${appRoot}/api/middleware/error-handlers.js`,
-);
-const { commonRouter } = require(`${appRoot}/api/controllers/common/route.js`);
-const { securityRouters } = require(`${appRoot}/api/controllers/security/route.js`);
+const { join } = require("path");
+const { createServer } = require("https");
+const { readFileSync } = require("fs");
+const { createSwaggerHost } = require("./swagger/hosting");
+const { sharedSettings } = require("../modules/configuration");
+const {
+  notFoundHandler,
+  serverErrorHandler,
+} = require("./middleware/error-handlers");
+const { managementRouter } = require("./controllers/management/route");
+const { securityRouters } = require("./controllers/security/route");
 
+const publicFolder = join(__dirname, "public");
 const app = express();
+app.use(express.static(publicFolder));
+app.use(favicon(join(publicFolder, "favicon.ico")));
 app.use(express.text());
 app.use(express.urlencoded());
 app.use(express.json());
-app.use("/api", commonRouter, securityRouters);
+createSwaggerHost(app);
+app.use("/api", managementRouter, securityRouters);
 app.use(notFoundHandler, serverErrorHandler);
 
-const helperApiBaseUrl = new URL(sharedSettings.helperApiBaseUrl);
-const port =
-  helperApiBaseUrl.port || (helperApiBaseUrl.protocol === "http:" ? 80 : 443);
-const server = app.listen(port, () => {
-  console.log(`Server is listening on port: ${port}`);
+const { protocol, host, port } = new URL(sharedSettings.helperApiBaseUrl);
+const certPath = join(__dirname, "assets");
+const server = createServer(
+  {
+    key: readFileSync(join(certPath, "server.key")),
+    cert: readFileSync(join(certPath, "server.cert")),
+  },
+  app,
+).listen(port, () => {
+  console.log("The API server is running on:", `${protocol}//${host}.`);
 });
 
 const shutDown = () => {

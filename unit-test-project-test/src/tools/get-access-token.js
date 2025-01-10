@@ -1,12 +1,10 @@
 "use strict";
-require("./setup.js");
-
 const { Command, Option } = require("commander");
-const { environments } = require(`${appRoot}/modules/configuration.js`);
-const { getClientAccessTokenAsync } = require(`${appRoot}/modules/security.js`);
+const { environments } = require("../modules/configuration");
+const { getClientAccessTokenAsync } = require("../modules/security");
 
-const program = new Command();
-program
+const command = new Command();
+command
   .name(__filename)
   .description(
     "Get the access token, based on the specified environment settings.",
@@ -21,7 +19,7 @@ program
       .makeOptionMandatory(),
   )
   .action(async () => {
-    const { environment } = program.opts();
+    const { environment } = command.opts();
     const { data } = await getClientAccessTokenAsync(environment);
     console.log(data);
   })

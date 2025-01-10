@@ -5,14 +5,23 @@
     "ageid",
     "apim",
     "ciam",
+    "customfavIcon",
+    "keyout",
     "nonprod",
     "onmicrosoft",
     "pprod",
     "prerequest",
+    "pwsh",
     "skillsgovau",
     "skillsgovaudevtest",
     "skillsgovaupprod",
-    "skillsgovausandpit"
+    "skillsgovausandpit",
+    "topbar"
   ],
-  "ignorePaths": ["node_modules/**", "./src/assets/**", "./src/http-tests/**"]
+  "ignorePaths": [
+    "node_modules/**",
+    "./src/assets/**",
+    "./src/http-tests/**",
+    "**/*.svg"
+  ]
 }

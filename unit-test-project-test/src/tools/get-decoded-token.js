@@ -1,13 +1,9 @@
 "use strict";
-require("./setup.js");
-
 const { Command, Option } = require("commander");
-const { getDecodedTokenOrClientAssertion } = require(
-  `${appRoot}/modules/security.js`,
-);
+const { getDecodedTokenOrClientAssertion } = require("../modules/security");
 
-const program = new Command();
-program
+const command = new Command();
+command
   .name(__filename)
   .description("Get the decoded access token or client credential.")
   .version("1.0.0")
@@ -15,7 +11,7 @@ program
     new Option("-d, --data <token>", "the encode token").makeOptionMandatory(),
   )
   .action(() => {
-    const { data } = program.opts();
+    const { data } = command.opts();
     const decodedToken = getDecodedTokenOrClientAssertion(data);
     console.log(decodedToken);
   })

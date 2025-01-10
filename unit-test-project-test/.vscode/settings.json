@@ -3,10 +3,17 @@
   "workbench.iconTheme": "material-icon-theme",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
+  "debug.hideSlowPreLaunchWarning": true,
   "postman.telemetry.enabled": false,
+  "[powershell]": {
+    "editor.defaultFormatter": "ms-vscode.powershell"
+  },
+  "[shellscript]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
   "rest-client.environmentVariables": {
     "$shared": {
-      "helperApiBaseUrl": "http://localhost:2025/api/v3"
+      "helperApiBaseUrl": "https://localhost:2025/api/v3"
     },
     "local": {
       "environmentName": "local",
