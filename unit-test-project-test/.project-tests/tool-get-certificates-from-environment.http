@@ -1,0 +1,4 @@
+### Get certificates from the current environment
+# @name GetCertificatesFromEnvironment
+GET {{helperApiBaseUrl}}/tools/certificates/{{environmentName}} HTTP/1.1
+Accept: application/json

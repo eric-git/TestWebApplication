@@ -2,17 +2,29 @@
   "version": "0.2",
   "language": "en",
   "words": [
+    "addext",
     "ageid",
     "apim",
     "ciam",
+    "customfavIcon",
+    "DEWR",
+    "enddate",
+    "keyout",
+    "mountpath",
+    "MSYS",
+    "newkey",
     "nonprod",
+    "noout",
     "onmicrosoft",
+    "PATHCONV",
     "pprod",
     "prerequest",
+    "pwsh",
     "skillsgovau",
     "skillsgovaudevtest",
     "skillsgovaupprod",
-    "skillsgovausandpit"
+    "skillsgovausandpit",
+    "topbar"
   ],
-  "ignorePaths": ["node_modules/**", "./src/assets/**", "./src/http-tests/**"]
+  "ignorePaths": ["node_modules/**", "src/apps/api/assets/**", "**/*.svg"]
 }

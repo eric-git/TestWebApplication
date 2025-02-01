@@ -1,0 +1,9 @@
+{
+  "environmentOutOfRange": "The environment name for the client assertion must be one of %s.",
+  "invalidTokenFormat": "The content of token or client assertion must contain a header, a payload and a signature delimited by dots.",
+  "invalidReuseFlag": "The optional reuse flag must be a boolean value, e.g. true or false, if provided. The default value is true.",
+  "invalidSpecificationFormat": "The format must be one of %s.",
+  "invalidVersion": "The version must either be omitted or be an integer in one of %s.",
+  "invalidBase64Format": "The data must be in base64 format.",
+  "passwordRequired": "The password is require"
+}

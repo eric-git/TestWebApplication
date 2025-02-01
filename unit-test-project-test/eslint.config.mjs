@@ -15,16 +15,10 @@ export default [
       globals: {
         ...globals.browser,
         ...globals.node,
-        appRoot: "writable",
       },
     },
   },
   pluginJs.configs.recommended,
   eslintPluginPrettierRecommended,
   cspellESLintPluginRecommended,
-  {
-    rules: {
-      "linebreak-style": "off",
-    },
-  },
 ];

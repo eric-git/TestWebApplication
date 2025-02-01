@@ -1,0 +1,26 @@
+### Get access token from CIAM via the internal app (nodejs API) for the subsequent API operations
+# @name GetAccessTokenFromCIAMInternal
+GET {{helperApiBaseUrl}}/security/token/{{environmentName}} HTTP/1.1
+Accept: application/json
+
+### Bulk request USI
+# @name BulkRequestUsi
+POST {{usiApiBaseUrl}}/enrolment/create/bulk HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+Ocp-Apim-Subscription-Key: {{apimSubscriptionKey}}
+Authorization: Bearer {{GetAccessTokenFromCIAMInternal.response.body.access_token}}
+
+{
+    "school_ageid": 9991234,
+    "data": [
+        {
+            "is_single_name": false,
+            "given_name": "testing",
+            "family_single_name": "vetone",
+            "date_of_birth": "2007-12-18",
+            "gender": "M",
+            "country_of_birth": "1101"
+        }
+    ]
+}

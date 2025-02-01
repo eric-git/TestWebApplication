@@ -1,69 +1,100 @@
 {
-  "workbench.colorTheme": "Abyss",
-  "workbench.iconTheme": "material-icon-theme",
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.formatOnSave": true,
-  "debug.hideSlowPreLaunchWarning": true,
-  "postman.telemetry.enabled": false,
-  "files.eol": "\n",
-  "rest-client.environmentVariables": {
-    "$shared": {
-      "helperApiBaseUrl": "https://localhost:2025/api/v3"
+  "versions": [
+    {
+      "title": "Management API operations",
+      "description": "Provides management related operations.",
+      "controllers": ["management"]
     },
-    "local": {
-      "environmentName": "local",
+    {
+      "version": 1,
+      "sunsetDate": "2024-12-01",
+      "title": "Main API operations",
+      "description": "Provides main operations.",
+      "controllers": ["security"]
+    },
+    {
+      "version": 2,
+      "sunsetDate": "2025-12-01",
+      "title": "Main API operations",
+      "description": "Provides main operations.",
+      "controllers": ["security"]
+    },
+    {
+      "version": 3,
+      "title": "Main API operations",
+      "description": "Provides main operations.",
+      "controllers": ["security", "tools"]
+    }
+  ],
+  "environments": [
+    {
+      "name": "local",
+      "machineKeystoreFileName": "keystore-nonprod.xml",
+      "machineAbn": "67662713814",
+      "machinePassword": "Password1!",
       "machineClientId": "7c1298f1-1457-4be3-b1a7-c6406993af3a",
       "usiApiBaseUrl": "https://localhost:44392/school/api/v1",
       "usiApplicationId": "b4d50b8d-1ef5-4089-ba35-a24dc13fc63b",
       "apimSubscriptionKey": "1ebc712c343b45109d365a71beac7343",
       "ciamTenant": "skillsgovausandpit.onmicrosoft.com"
     },
-    "dev": {
-      "environmentName": "dev",
+    {
+      "name": "dev",
+      "machineKeystoreFileName": "keystore-nonprod.xml",
+      "machineAbn": "67662713814",
+      "machinePassword": "Password1!",
       "machineClientId": "7c1298f1-1457-4be3-b1a7-c6406993af3a",
       "usiApiBaseUrl": "https://usi.dev.skills.edt.dis.gov.au/school/api/v1",
       "usiApplicationId": "b4d50b8d-1ef5-4089-ba35-a24dc13fc63b",
       "apimSubscriptionKey": "1ebc712c343b45109d365a71beac7343",
       "ciamTenant": "skillsgovausandpit.onmicrosoft.com"
     },
-    "test": {
-      "environmentName": "test",
+    {
+      "name": "test",
+      "machineKeystoreFileName": "keystore-nonprod.xml",
+      "machineAbn": "67662713814",
+      "machinePassword": "Password1!",
       "machineClientId": "a8419872-7917-413c-9f15-af89d7ade273",
       "usiApiBaseUrl": "https://usi.test.skills.edt.dis.gov.au/school/api/v1",
       "usiApplicationId": "7d670b78-d2dc-4468-a906-39e7965638c3",
       "apimSubscriptionKey": "ec9509557a7b4bd99d0618e9961c6d64",
       "ciamTenant": "skillsgovaudevtest.onmicrosoft.com"
     },
-    "pprod": {
-      "environmentName": "pprod",
+    {
+      "name": "pprod",
+      "machineKeystoreFileName": "keystore-nonprod.xml",
+      "machineAbn": "67662713814",
+      "machinePassword": "Password1!",
       "machineClientId": "5b08b39a-d6b7-4df7-a9f6-cf9a2aeb5959",
       "usiApiBaseUrl": "https://pprod.np.osir.usi.gov.au/school/api/v1",
       "usiApplicationId": "e75663fa-f452-401e-885b-dc4e09ae9a70",
       "apimSubscriptionKey": "6f093961ed2340f3ba67fc2ccc1b4958",
       "ciamTenant": "skillsgovaupprod.onmicrosoft.com"
     },
-    "training": {
-      "environmentName": "training",
+    {
+      "name": "training",
+      "machineKeystoreFileName": "keystore-prod.xml",
+      "machineAbn": "67662713814",
+      "machinePassword": "Password1!",
       "machineClientId": "5b08b39a-d6b7-4df7-a9f6-cf9a2aeb5959",
       "usiApiBaseUrl": "https://3pt.osir.usi.gov.au/school/api/v1",
       "usiApplicationId": "TBA",
       "apimSubscriptionKey": "TBA",
       "ciamTenant": "skillsgovau.onmicrosoft.com"
     },
-    "prod": {
-      "environmentName": "prod",
+    {
+      "name": "prod",
+      "machineKeystoreFileName": "keystore-prod.xml",
+      "machineAbn": "67662713814",
+      "machinePassword": "Password1!",
       "machineClientId": "5b08b39a-d6b7-4df7-a9f6-cf9a2aeb5959",
       "usiApiBaseUrl": "https://osir.usi.gov.au/school/api/v1",
       "usiApplicationId": "TBA",
       "apimSubscriptionKey": "TBA",
       "ciamTenant": "skillsgovau.onmicrosoft.com"
     }
-  },
-  "rest-client.defaultHeaders": {
-    "Accept": "application/json",
-    "Content-Type": "application/json",
-    "User-Agent": "vscode-restclient"
-  },
-  "rest-client.requestNameAsResponseTabTitle": true,
-  "rest-client.logLevel": "verbose"
+  ],
+  "specifications": {
+    "supportedFormats": ["yaml", "json"]
+  }
 }

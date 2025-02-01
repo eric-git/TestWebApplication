@@ -16,7 +16,7 @@ This project can be used on both Windows and Linux systems. MacOS and iOS have n
 
 1. Open this folder using VS Code;
 
-2. Run the following command to spin up a local Node.js Web API (powered by `Express.js`) for helper services;
+2. Run the following command to spin up a local Node.js Web API, powered by `Express.js`, for helper services;
 
 ```console
 npm start
@@ -24,10 +24,9 @@ npm start
 
 3. The following helper operations are provided:
 
-- `GET http://localhost:2025/api` - Health check;
-- `GET http://localhost:2025/api/:version/security/assertion/:environment` - Get the client assertion that can be used for access token request;
-- `GET http://localhost:2025/api/:version/security/token/:environment` - Get the access token directly;
-- `POST http://localhost:2025/api/:version/security/decode` - Get the decoded access token or client assertion;
+- `GET https://localhost:2025/api/:version/security/assertion/:environment` - Get the client assertion that can be used for access token request;
+- `GET https://localhost:2025/api/:version/security/token/:environment` - Get the access token directly;
+- `POST https://localhost:2025/api/:version/security/decode` - Get the decoded access token or client assertion;
 
 where the :version for testing:
 
@@ -35,32 +34,19 @@ where the :version for testing:
 - `v2`: to be replaced;
 - `v3`: new.
 
-the :environment for testing is defined in the section `rest-client.environmentVariables` in the [VS Code settings.json file](./.vscode/settings.json) and/or [http-client.env.json](./src/http-tests/http-client.env.json).
+the :environment for testing is defined in the section `rest-client.environmentVariables` in the [VS Code settings.json file](./.vscode/settings.json) and/or [http-client.env.json](./.project-tests/http-client.env.json).
 
-4. Open the relevant `.http` files under folder `http-tests` to test the requests.
+4. Open the relevant `.http` files under folder `.project-tests` to test the requests.
 
 ## Other features
 
-- Run the following command to get the client assertion that can be used for access token request without running the server;
+1. If installing `Postman Desktop` is not possible, e.g. running this project on a Linux system, then please install `VS Code Postman Extension` and import [the collection template](./.project-templates/postman-collection.json) for testing the Node.js Web APIs;
 
-```console
-node ./src/tools/get-client-assertion.js -e <the environment name>
-```
+2. Use the [.http file template](./.project-templates/template.http) to create new `.http` files.
 
-- Run the following command to get the access token directly without running the server;
+3. API documentation:
 
-```console
-node ./src/tools/get-access-token.js -e <the environment name>
-```
-
-- Run the following command to get the decoded access token or client assertion without running the server;
-
-```console
-node ./src/tools/get-decoded-token.js -d <the access token or client assertion>
-```
-
-- If installing `Postman Desktop` is not possible, e.g. running this project on a Linux system, then please install `VS Code Postman Extension` and import [the collection template](./src/assets/Testing%20Node.js%20APIs.postman_collection.json) for testing the Node.js Web APIs;
-- Use the [.http file template](./src/assets/template.http) to create new `.http` files.
+OpenAPI Specification (OAS) version 3.0.0, URL: https://localhost:2025/swagger.
 
 ## Contribute
 
@@ -82,6 +68,24 @@ npm run spell
 npm run lint
 ```
 
+- Run the following command to sync the [VS Code settings.json file](./.vscode/settings.json) and [http-client.env.json](./.project-tests/http-client.env.json) with the [API settings.json file](./src/apps/api/settings.json);
+
+```console
+npm run sync
+```
+
+- Run the following command to update the SSL certificate used by hosting the local Node.js Web API;
+
+```console
+npm run cert
+```
+
+-Run the following command to install and update packages for this project;
+
+```console
+npm run packages
+```
+
 - Linux systems treat files and/or folders without filenames, such as file .gitignore, or folder .vscode, as hidden objects. If such files and/or folders are not shown, please enable `Show Hidden Files` option in the system.
 
 ## Limitations
@@ -97,7 +101,7 @@ The VS Code REST Client Extension is not available on Visual Studio, and Microso
 If running the `.http` files in Visual Studio:
 
 - Some of the features from REST Client will not work. The `.http` files must be updated to cope with Visual Studio;
-- The Visual Studio environment configuration file [http-client.env.json](./src/http-tests/http-client.env.json) must be in sync with the section `rest-client.environmentVariables` in the [VS Code settings.json file](./.vscode/settings.json).
+- The Visual Studio environment configuration file [http-client.env.json](./.project-tests/http-client.env.json) must be in sync with the section `rest-client.environmentVariables` in the [VS Code settings.json file](./.vscode/settings.json).
 
 Please refer to the following resource `Microsoft .http files` for details.
 
@@ -111,4 +115,4 @@ Please refer to the following resource `Microsoft .http files` for details.
 
 ## Notes
 
-The information provided is as of 03/01/2025. Please update this document if any changes.
+The information provided is as of 15/01/2025. Please update this document if any changes.

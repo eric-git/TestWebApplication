@@ -1,15 +1,18 @@
 {
-  "name": "api-test",
+  "name": "usi-external-api-unit-test",
   "version": "1.0.0",
   "description": "USI school external Web API unit test",
   "type": "commonjs",
-  "main": "./src/app.js",
+  "main": "./src/server.js",
   "scripts": {
-    "prestart": "npm install --no-fund",
-    "start": "nodemon",
+    "cert": "node ./.project-scripts/cert-renewal.js --quiet",
+    "sync": "node ./.project-scripts/sync-config.js --quiet",
+    "prettier": "prettier --write . --log-level warn",
     "lint": "eslint",
-    "prettier": "prettier --write .",
-    "spell": "cspell **"
+    "packages": "npx npm-check-updates -u && npm install",
+    "spell": "cspell **",
+    "prestart": "npm run cert && npm run sync && npm run prettier && npm run lint",
+    "start": "nodemon --quiet"
   },
   "engines": {
     "node": ">=22.12.0",
@@ -37,23 +40,36 @@
   ],
   "license": "ISC",
   "dependencies": {
-    "@xmldom/xmldom": "^0.9.6",
+    "@xmldom/xmldom": "^0.9.7",
     "axios": "^1.7.9",
-    "cache-manager": "^6.3.2",
-    "commander": "^13.0.0",
+    "cache-manager": "^6.4.0",
+    "compression": "^1.7.5",
     "express": "^5.0.1",
     "express-validator": "^7.2.1",
-    "xpath": "^0.0.34"
+    "glob": "^11.0.1",
+    "node-forge": "^1.3.1",
+    "serve-favicon": "^2.5.0",
+    "serve-static": "^2.1.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-themes": "^1.4.3",
+    "swagger-ui-express": "^5.0.1",
+    "xpath": "^0.0.34",
+    "yaml": "^2.7.0"
   },
   "devDependencies": {
-    "@cspell/eslint-plugin": "^8.17.1",
-    "@eslint/js": "^9.17.0",
-    "cspell": "^8.17.1",
-    "eslint": "^9.17.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-prettier": "^5.2.1",
+    "@cspell/eslint-plugin": "^8.17.3",
+    "@eslint/js": "^9.19.0",
+    "cspell": "^8.17.3",
+    "eslint": "^9.19.0",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-plugin-prettier": "^5.2.3",
     "globals": "^15.14.0",
     "nodemon": "^3.1.9",
-    "prettier": "^3.4.2"
+    "npm-check-updates": "^17.1.14",
+    "prettier": "^3.4.2",
+    "shelljs": "^0.8.5"
+  },
+  "scarfSettings": {
+    "enabled": false
   }
 }

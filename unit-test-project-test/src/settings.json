@@ -1,0 +1,13 @@
+{
+  "host": "https://localhost:2025",
+  "apps": [
+    {
+      "type": "API",
+      "path": "/api"
+    },
+    {
+      "type": "Document",
+      "path": "/swagger"
+    }
+  ]
+}

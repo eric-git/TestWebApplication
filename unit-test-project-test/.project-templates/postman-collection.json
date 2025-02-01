@@ -1,0 +1,1187 @@
+{
+  "info": {
+    "_postman_id": "8acfd6c2-5f02-47d3-b7fd-2a89e4e2afb9",
+    "name": "Testing Node.js APIs",
+    "description": "This collection is for local testing USI external APIs.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "34486565"
+  },
+  "item": [
+    {
+      "name": "API",
+      "item": [
+        {
+          "name": "Main",
+          "item": [
+            {
+              "name": "Security",
+              "item": [
+                {
+                  "name": "v3 - the new version in parallel with V2",
+                  "item": [
+                    {
+                      "name": "Get Client Assertion",
+                      "item": [
+                        {
+                          "name": "Operation",
+                          "request": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseApiUrl}}/v3/security/assertion/:environment",
+                              "host": ["{{baseApiUrl}}"],
+                              "path": [
+                                "v3",
+                                "security",
+                                "assertion",
+                                ":environment"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "environment",
+                                  "value": "pprod",
+                                  "description": "The target environment to access."
+                                }
+                              ]
+                            },
+                            "description": "Get the client_credential details by environment."
+                          },
+                          "response": []
+                        },
+                        {
+                          "name": "Supported Methods",
+                          "request": {
+                            "method": "OPTIONS",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseApiUrl}}/v3/security/assertion/:environment",
+                              "host": ["{{baseApiUrl}}"],
+                              "path": [
+                                "v3",
+                                "security",
+                                "assertion",
+                                ":environment"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "environment",
+                                  "value": "pprod"
+                                }
+                              ]
+                            },
+                            "description": "Get the supported methods of this operation."
+                          },
+                          "response": []
+                        },
+                        {
+                          "name": "Header Info",
+                          "request": {
+                            "method": "HEAD",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseApiUrl}}/v3/security/assertion/:environment",
+                              "host": ["{{baseApiUrl}}"],
+                              "path": [
+                                "v3",
+                                "security",
+                                "assertion",
+                                ":environment"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "environment",
+                                  "value": "pprod"
+                                }
+                              ]
+                            },
+                            "description": "Get the header info of this operation."
+                          },
+                          "response": []
+                        }
+                      ],
+                      "description": "Get the client_credential details by environment."
+                    },
+                    {
+                      "name": "Get Access Token",
+                      "item": [
+                        {
+                          "name": "Operation",
+                          "request": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseApiUrl}}/v3/security/token/:environment?reuse=true",
+                              "host": ["{{baseApiUrl}}"],
+                              "path": [
+                                "v3",
+                                "security",
+                                "token",
+                                ":environment"
+                              ],
+                              "query": [
+                                {
+                                  "key": "reuse",
+                                  "value": "true",
+                                  "description": "Indicating whether using the existing token until expired. Optional, default: true."
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "environment",
+                                  "value": "pprod",
+                                  "type": "string",
+                                  "description": "The target environment to access."
+                                }
+                              ]
+                            },
+                            "description": "Get the access token from CIAM by environment."
+                          },
+                          "response": []
+                        },
+                        {
+                          "name": "Supported Methods",
+                          "request": {
+                            "method": "OPTIONS",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseApiUrl}}/v3/security/token/:environment",
+                              "host": ["{{baseApiUrl}}"],
+                              "path": [
+                                "v3",
+                                "security",
+                                "token",
+                                ":environment"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "environment",
+                                  "value": "pprod"
+                                }
+                              ]
+                            },
+                            "description": "Get the supported methods of this operation."
+                          },
+                          "response": []
+                        },
+                        {
+                          "name": "Header Info",
+                          "request": {
+                            "method": "HEAD",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseApiUrl}}/v3/security/token/:environment",
+                              "host": ["{{baseApiUrl}}"],
+                              "path": [
+                                "v3",
+                                "security",
+                                "token",
+                                ":environment"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "environment",
+                                  "value": "pprod"
+                                }
+                              ]
+                            },
+                            "description": "Get the header info of this operation."
+                          },
+                          "response": []
+                        }
+                      ],
+                      "description": "Get the access token from CIAM by environment."
+                    },
+                    {
+                      "name": "Decode Token or Assertion",
+                      "item": [
+                        {
+                          "name": "Operation - Decode a Client Assertion",
+                          "request": {
+                            "method": "POST",
+                            "header": [],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "eyJraWQiOiJmZmEwNGQ0OS1lNzFiLTQxNGMtOTJjOC0xYmQwMDY5NDc1YjgiLCJhbGciOiJSUzI1NiIsIng1dCI6IkJvcXhvM0NRSDdoNXJOa05OdnJ3WHQxRDdIST0ifQ.eyJpc3MiOiI1YjA4YjM5YS1kNmI3LTRkZjctYTlmNi1jZjlhMmFlYjU5NTkiLCJzdWIiOiI1YjA4YjM5YS1kNmI3LTRkZjctYTlmNi1jZjlhMmFlYjU5NTkiLCJhdWQiOiJodHRwczovL2xvZ2luLm1pY3Jvc29mdG9ubGluZS5jb20vc2tpbGxzZ292YXVwcHJvZC5vbm1pY3Jvc29mdC5jb20vb2F1dGgyL3YyLjAvdG9rZW4iLCJpYXQiOjE3MzUxMDY1MTcsImV4cCI6MTczNTExMDExN30.cyxxQHJL8RLIQOyYqEnbNPH95ygeDm_IrCVQe7hongwp-LKEA4m9RwHjlMDdtiUdZZuRLhgMNzvPbYoP_B2LkXeQQR1agw7Nk_Py2tRG_wk_746_VDoOc9vVRy2xI4CQ9ZluTxldsnsf_rwuixOwUxiGvNP6byx7E7UPDDOs49QhwQs56HozrCr35qt48EXmeXsz8OMqumZIYq_gT9H86bxivOnEirfkZEsZPipdX9VKHzCMGShgrrlsGBr_jf5M3cY8wpIK3iocqa9IC-IlAyy8-fO9n82Ft0Uk-QJPB8GX7c-bHGc-HXuO-SgCXQHAOr1U5IELMyNx05Uy1MLI3Q",
+                              "options": {
+                                "raw": {
+                                  "language": "text"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseApiUrl}}/v3/security/decode",
+                              "host": ["{{baseApiUrl}}"],
+                              "path": ["v3", "security", "decode"]
+                            },
+                            "description": "Decode a client assertion."
+                          },
+                          "response": []
+                        },
+                        {
+                          "name": "Operation - Decode an Access Token",
+                          "request": {
+                            "method": "POST",
+                            "header": [],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6InoxcnNZSEhKOS04bWdndDRIc1p1OEJLa0JQdyJ9.eyJhdWQiOiJlNzU2NjNmYS1mNDUyLTQwMWUtODg1Yi1kYzRlMDlhZTlhNzAiLCJpc3MiOiJodHRwczovL2xvZ2luLm1pY3Jvc29mdG9ubGluZS5jb20vOWY3YTgyYTEtNTVlNi00ZjMwLTgxNzgtYTdhMGZjMzJiMGVhL3YyLjAiLCJpYXQiOjE3MzQ4Mzc5NTksIm5iZiI6MTczNDgzNzk1OSwiZXhwIjoxNzM0ODQxODU5LCJhaW8iOiJrMkJnWU9DOGJNWWR2cmIwN0g2UHhtcXRmOHo1SDZlOHJtQzdtM1hyazU2ZDZsdzlreHNBIiwiYXpwIjoiNWIwOGIzOWEtZDZiNy00ZGY3LWE5ZjYtY2Y5YTJhZWI1OTU5IiwiYXpwYWNyIjoiMiIsIm9pZCI6IjdlNWMwNjdkLWJkMDAtNGEwOC04OWM1LWE3ZTgwOGY4NTQxYiIsInJoIjoiMS5BVU1Bb1lKNm4tWlZNRS1CZUtlZ19ES3c2dnBqVnVkUzlCNUFpRnZjVGdtdW1uQkVBQUJEQUEuIiwic3ViIjoiN2U1YzA2N2QtYmQwMC00YTA4LTg5YzUtYTdlODA4Zjg1NDFiIiwidGlkIjoiOWY3YTgyYTEtNTVlNi00ZjMwLTgxNzgtYTdhMGZjMzJiMGVhIiwidXRpIjoiWFlFcjl3OWhqVWlIb1dmSHZFOGhBQSIsInZlciI6IjIuMCJ9.GwQvY9X5wmWtxBfoagFBQSFtPq4w9gHYKUzeBzi7N49-p4yrInBSR0pN0vo72sf2sWvTCU9sKv8W2LEEl9vXECPW3MP25KR62-7IuDA1v-NhThJ_EZ0WezD9_fJdTW7VTOUNUHwg6SUSPo2-82A1ogLBVFUDY2Z59CLa_NuNgIAW8yRu3xPaZ55WmaF7ZF_vcZRBqdPq9ocPQu7F3yXa80Ki9QKJ2qLC1iF-uOAlAyhXeN-0sGV9NtcbZdx_mghgH-5j8NCcop68CbjpC9Cx-Vh3Rzpq1VemKCfiDRNHsT8Xn-VPGDE38gJPkSiBLXyLMD8MzwmoZwAoF_Ur9wqRHQ",
+                              "options": {
+                                "raw": {
+                                  "language": "text"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseApiUrl}}/v3/security/decode",
+                              "host": ["{{baseApiUrl}}"],
+                              "path": ["v3", "security", "decode"]
+                            },
+                            "description": "Decode an access token."
+                          },
+                          "response": []
+                        },
+                        {
+                          "name": "Supported Methods",
+                          "request": {
+                            "method": "OPTIONS",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseApiUrl}}/v3/security/decode",
+                              "host": ["{{baseApiUrl}}"],
+                              "path": ["v3", "security", "decode"]
+                            },
+                            "description": "Get the supported methods of this operation."
+                          },
+                          "response": []
+                        }
+                      ],
+                      "description": "Decode an access token or a client assertion."
+                    }
+                  ],
+                  "description": "Test V3 - a new version to be used after V2 sunset."
+                },
+                {
+                  "name": "v2 - the sunset version on 1 Jan next year",
+                  "item": [
+                    {
+                      "name": "Get Client Assertion",
+                      "item": [
+                        {
+                          "name": "Operation",
+                          "request": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseApiUrl}}/v2/security/assertion/:environment",
+                              "host": ["{{baseApiUrl}}"],
+                              "path": [
+                                "v2",
+                                "security",
+                                "assertion",
+                                ":environment"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "environment",
+                                  "value": "pprod",
+                                  "description": "The target environment to access."
+                                }
+                              ]
+                            },
+                            "description": "Get the client_credential details by environment."
+                          },
+                          "response": []
+                        },
+                        {
+                          "name": "Supported Methods",
+                          "request": {
+                            "method": "OPTIONS",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseApiUrl}}/v2/security/assertion/:environment",
+                              "host": ["{{baseApiUrl}}"],
+                              "path": [
+                                "v2",
+                                "security",
+                                "assertion",
+                                ":environment"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "environment",
+                                  "value": "pprod"
+                                }
+                              ]
+                            },
+                            "description": "Get the supported methods of this operation."
+                          },
+                          "response": []
+                        },
+                        {
+                          "name": "Header Info",
+                          "request": {
+                            "method": "HEAD",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseApiUrl}}/v2/security/assertion/:environment",
+                              "host": ["{{baseApiUrl}}"],
+                              "path": [
+                                "v2",
+                                "security",
+                                "assertion",
+                                ":environment"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "environment",
+                                  "value": "pprod"
+                                }
+                              ]
+                            },
+                            "description": "Get the header info of this operation."
+                          },
+                          "response": []
+                        }
+                      ],
+                      "description": "Get the client_credential details by environment."
+                    },
+                    {
+                      "name": "Get Access Token",
+                      "item": [
+                        {
+                          "name": "Operation",
+                          "request": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseApiUrl}}/v2/security/token/:environment",
+                              "host": ["{{baseApiUrl}}"],
+                              "path": [
+                                "v2",
+                                "security",
+                                "token",
+                                ":environment"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "environment",
+                                  "value": "pprod",
+                                  "description": "The target environment to access."
+                                }
+                              ]
+                            },
+                            "description": "Get the access token from CIAM by environment."
+                          },
+                          "response": []
+                        },
+                        {
+                          "name": "Supported Methods",
+                          "request": {
+                            "method": "OPTIONS",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseApiUrl}}/v2/security/token/:environment",
+                              "host": ["{{baseApiUrl}}"],
+                              "path": [
+                                "v2",
+                                "security",
+                                "token",
+                                ":environment"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "environment",
+                                  "value": "pprod"
+                                }
+                              ]
+                            }
+                          },
+                          "response": []
+                        },
+                        {
+                          "name": "Header Info",
+                          "request": {
+                            "method": "HEAD",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseApiUrl}}/v2/security/token/:environment",
+                              "host": ["{{baseApiUrl}}"],
+                              "path": [
+                                "v2",
+                                "security",
+                                "token",
+                                ":environment"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "environment",
+                                  "value": "pprod"
+                                }
+                              ]
+                            },
+                            "description": "Get the header info of this operation."
+                          },
+                          "response": []
+                        }
+                      ],
+                      "description": "Get an access token based on the environment specified."
+                    },
+                    {
+                      "name": "Decode Token or Assertion",
+                      "item": [
+                        {
+                          "name": "Operation - Decode a Client Assertion",
+                          "request": {
+                            "method": "POST",
+                            "header": [],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "eyJraWQiOiJmZmEwNGQ0OS1lNzFiLTQxNGMtOTJjOC0xYmQwMDY5NDc1YjgiLCJhbGciOiJSUzI1NiIsIng1dCI6IkJvcXhvM0NRSDdoNXJOa05OdnJ3WHQxRDdIST0ifQ.eyJpc3MiOiI1YjA4YjM5YS1kNmI3LTRkZjctYTlmNi1jZjlhMmFlYjU5NTkiLCJzdWIiOiI1YjA4YjM5YS1kNmI3LTRkZjctYTlmNi1jZjlhMmFlYjU5NTkiLCJhdWQiOiJodHRwczovL2xvZ2luLm1pY3Jvc29mdG9ubGluZS5jb20vc2tpbGxzZ292YXVwcHJvZC5vbm1pY3Jvc29mdC5jb20vb2F1dGgyL3YyLjAvdG9rZW4iLCJpYXQiOjE3MzUxMDY1MTcsImV4cCI6MTczNTExMDExN30.cyxxQHJL8RLIQOyYqEnbNPH95ygeDm_IrCVQe7hongwp-LKEA4m9RwHjlMDdtiUdZZuRLhgMNzvPbYoP_B2LkXeQQR1agw7Nk_Py2tRG_wk_746_VDoOc9vVRy2xI4CQ9ZluTxldsnsf_rwuixOwUxiGvNP6byx7E7UPDDOs49QhwQs56HozrCr35qt48EXmeXsz8OMqumZIYq_gT9H86bxivOnEirfkZEsZPipdX9VKHzCMGShgrrlsGBr_jf5M3cY8wpIK3iocqa9IC-IlAyy8-fO9n82Ft0Uk-QJPB8GX7c-bHGc-HXuO-SgCXQHAOr1U5IELMyNx05Uy1MLI3Q",
+                              "options": {
+                                "raw": {
+                                  "language": "text"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseApiUrl}}/v2/security/decode",
+                              "host": ["{{baseApiUrl}}"],
+                              "path": ["v2", "security", "decode"]
+                            },
+                            "description": "Decode a client assertion."
+                          },
+                          "response": []
+                        },
+                        {
+                          "name": "Operation - Decode an Access Token",
+                          "request": {
+                            "method": "POST",
+                            "header": [],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6InoxcnNZSEhKOS04bWdndDRIc1p1OEJLa0JQdyJ9.eyJhdWQiOiJlNzU2NjNmYS1mNDUyLTQwMWUtODg1Yi1kYzRlMDlhZTlhNzAiLCJpc3MiOiJodHRwczovL2xvZ2luLm1pY3Jvc29mdG9ubGluZS5jb20vOWY3YTgyYTEtNTVlNi00ZjMwLTgxNzgtYTdhMGZjMzJiMGVhL3YyLjAiLCJpYXQiOjE3MzQ4Mzc5NTksIm5iZiI6MTczNDgzNzk1OSwiZXhwIjoxNzM0ODQxODU5LCJhaW8iOiJrMkJnWU9DOGJNWWR2cmIwN0g2UHhtcXRmOHo1SDZlOHJtQzdtM1hyazU2ZDZsdzlreHNBIiwiYXpwIjoiNWIwOGIzOWEtZDZiNy00ZGY3LWE5ZjYtY2Y5YTJhZWI1OTU5IiwiYXpwYWNyIjoiMiIsIm9pZCI6IjdlNWMwNjdkLWJkMDAtNGEwOC04OWM1LWE3ZTgwOGY4NTQxYiIsInJoIjoiMS5BVU1Bb1lKNm4tWlZNRS1CZUtlZ19ES3c2dnBqVnVkUzlCNUFpRnZjVGdtdW1uQkVBQUJEQUEuIiwic3ViIjoiN2U1YzA2N2QtYmQwMC00YTA4LTg5YzUtYTdlODA4Zjg1NDFiIiwidGlkIjoiOWY3YTgyYTEtNTVlNi00ZjMwLTgxNzgtYTdhMGZjMzJiMGVhIiwidXRpIjoiWFlFcjl3OWhqVWlIb1dmSHZFOGhBQSIsInZlciI6IjIuMCJ9.GwQvY9X5wmWtxBfoagFBQSFtPq4w9gHYKUzeBzi7N49-p4yrInBSR0pN0vo72sf2sWvTCU9sKv8W2LEEl9vXECPW3MP25KR62-7IuDA1v-NhThJ_EZ0WezD9_fJdTW7VTOUNUHwg6SUSPo2-82A1ogLBVFUDY2Z59CLa_NuNgIAW8yRu3xPaZ55WmaF7ZF_vcZRBqdPq9ocPQu7F3yXa80Ki9QKJ2qLC1iF-uOAlAyhXeN-0sGV9NtcbZdx_mghgH-5j8NCcop68CbjpC9Cx-Vh3Rzpq1VemKCfiDRNHsT8Xn-VPGDE38gJPkSiBLXyLMD8MzwmoZwAoF_Ur9wqRHQ",
+                              "options": {
+                                "raw": {
+                                  "language": "text"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseApiUrl}}/v2/security/decode",
+                              "host": ["{{baseApiUrl}}"],
+                              "path": ["v2", "security", "decode"]
+                            },
+                            "description": "Decode an access token."
+                          },
+                          "response": []
+                        },
+                        {
+                          "name": "Supported Methods",
+                          "request": {
+                            "method": "OPTIONS",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseApiUrl}}/v2/security/decode",
+                              "host": ["{{baseApiUrl}}"],
+                              "path": ["v2", "security", "decode"]
+                            },
+                            "description": "Get the supported methods of this operation."
+                          },
+                          "response": []
+                        }
+                      ],
+                      "description": "Decode an access token or a client assertion."
+                    }
+                  ],
+                  "description": "Test V2 - a version with sunset defined."
+                },
+                {
+                  "name": "v1 - the deprecated version on 1 Jan last year",
+                  "item": [
+                    {
+                      "name": "Get Access Token",
+                      "item": [
+                        {
+                          "name": "Operation",
+                          "request": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseApiUrl}}/v1/security/token/:environment",
+                              "host": ["{{baseApiUrl}}"],
+                              "path": [
+                                "v1",
+                                "security",
+                                "token",
+                                ":environment"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "environment",
+                                  "value": "pprod",
+                                  "description": "The target environment to access."
+                                }
+                              ]
+                            },
+                            "description": "Get the access token from CIAM by environment."
+                          },
+                          "response": []
+                        },
+                        {
+                          "name": "Supported Methods",
+                          "request": {
+                            "method": "OPTIONS",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseApiUrl}}/v1/security/token/:environment",
+                              "host": ["{{baseApiUrl}}"],
+                              "path": [
+                                "v1",
+                                "security",
+                                "token",
+                                ":environment"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "environment",
+                                  "value": "pprod"
+                                }
+                              ]
+                            },
+                            "description": "Get the supported methods of this operation."
+                          },
+                          "response": []
+                        },
+                        {
+                          "name": "Header Info",
+                          "request": {
+                            "method": "HEAD",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseApiUrl}}/v1/security/token/:environment",
+                              "host": ["{{baseApiUrl}}"],
+                              "path": [
+                                "v1",
+                                "security",
+                                "token",
+                                ":environment"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "environment",
+                                  "value": "pprod"
+                                }
+                              ]
+                            },
+                            "description": "Get the header info of this operation."
+                          },
+                          "response": []
+                        }
+                      ],
+                      "description": "Get the access token from CIAM by environment."
+                    }
+                  ],
+                  "description": "Test V1 - a deprecated version."
+                }
+              ],
+              "description": "Security related helper operations."
+            },
+            {
+              "name": "Tools",
+              "item": [
+                {
+                  "name": "v3 - the new version",
+                  "item": [
+                    {
+                      "name": "Get Certificates By Environment",
+                      "item": [
+                        {
+                          "name": "Operation",
+                          "request": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseApiUrl}}/v3/tools/certificates/:environment",
+                              "host": ["{{baseApiUrl}}"],
+                              "path": [
+                                "v3",
+                                "tools",
+                                "certificates",
+                                ":environment"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "environment",
+                                  "value": "test",
+                                  "type": "string",
+                                  "description": "The target environment to access."
+                                }
+                              ]
+                            },
+                            "description": "Get the public certificate chain based on the environment provided."
+                          },
+                          "response": []
+                        },
+                        {
+                          "name": "Supported Methods",
+                          "request": {
+                            "method": "OPTIONS",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseApiUrl}}/v3/tools/certificates/:environment",
+                              "host": ["{{baseApiUrl}}"],
+                              "path": [
+                                "v3",
+                                "tools",
+                                "certificates",
+                                ":environment"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "environment",
+                                  "value": "pprod"
+                                }
+                              ]
+                            },
+                            "description": "Get the supported methods of this operation."
+                          },
+                          "response": []
+                        },
+                        {
+                          "name": "Header Info",
+                          "request": {
+                            "method": "HEAD",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseApiUrl}}/v3/tools/certificates/:environment",
+                              "host": ["{{baseApiUrl}}"],
+                              "path": [
+                                "v3",
+                                "tools",
+                                "certificates",
+                                ":environment"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "environment",
+                                  "value": "pprod"
+                                }
+                              ]
+                            },
+                            "description": "Get the header info of this operation."
+                          },
+                          "response": []
+                        }
+                      ],
+                      "description": "Get the public certificate chain based on the environment provided."
+                    },
+                    {
+                      "name": "Get Decrypted Private Key By Environment",
+                      "item": [
+                        {
+                          "name": "Operation",
+                          "request": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseApiUrl}}/v3/tools/private-key/:environment",
+                              "host": ["{{baseApiUrl}}"],
+                              "path": [
+                                "v3",
+                                "tools",
+                                "private-key",
+                                ":environment"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "environment",
+                                  "value": "test",
+                                  "type": "string",
+                                  "description": "The target environment to access."
+                                }
+                              ]
+                            },
+                            "description": "Get the decrypted private key based on the environment provided."
+                          },
+                          "response": []
+                        },
+                        {
+                          "name": "Supported Methods",
+                          "request": {
+                            "method": "OPTIONS",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseApiUrl}}/v3/tools/private-key/:environment",
+                              "host": ["{{baseApiUrl}}"],
+                              "path": [
+                                "v3",
+                                "tools",
+                                "private-key",
+                                ":environment"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "environment",
+                                  "value": "pprod"
+                                }
+                              ]
+                            },
+                            "description": "Get the supported methods of this operation."
+                          },
+                          "response": []
+                        },
+                        {
+                          "name": "Header Info",
+                          "request": {
+                            "method": "HEAD",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseApiUrl}}/v3/tools/private-key/:environment",
+                              "host": ["{{baseApiUrl}}"],
+                              "path": [
+                                "v3",
+                                "tools",
+                                "private-key",
+                                ":environment"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "environment",
+                                  "value": "pprod"
+                                }
+                              ]
+                            },
+                            "description": "Get the header info of this operation."
+                          },
+                          "response": []
+                        }
+                      ],
+                      "description": "Get the decrypted private key based on the environment provided."
+                    },
+                    {
+                      "name": "Resolve Certificate",
+                      "item": [
+                        {
+                          "name": "Operation",
+                          "request": {
+                            "method": "POST",
+                            "header": [],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "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",
+                              "options": {
+                                "raw": {
+                                  "language": "text"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseApiUrl}}/v3/tools/certificates",
+                              "host": ["{{baseApiUrl}}"],
+                              "path": ["v3", "tools", "certificates"]
+                            },
+                            "description": "Resolve the public certificate chain based on the combined data provided."
+                          },
+                          "response": []
+                        },
+                        {
+                          "name": "Supported Methods",
+                          "request": {
+                            "method": "OPTIONS",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseApiUrl}}/v3/tools/certificates",
+                              "host": ["{{baseApiUrl}}"],
+                              "path": ["v3", "tools", "certificates"]
+                            },
+                            "description": "Get the supported methods of this operation."
+                          },
+                          "response": []
+                        }
+                      ],
+                      "description": "Resolve the public certificate chain based on the combined data provided."
+                    },
+                    {
+                      "name": "Resolve Decrypted Private Key",
+                      "item": [
+                        {
+                          "name": "Operation",
+                          "request": {
+                            "method": "POST",
+                            "header": [],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n    \"password\": \"Password1!\",\n    \"data\": \"MIIE9jAoBgoqhkiG9w0BDAEDMBoEFPL/DMLF2EnfJEYKjPGrSxvaQv2HAgIEAASCBMgg+sN0o17ghsZCJDF+xc5kLPUO1WBvgFjxaw5lho9IbhNrLqnxUaRdxS30G++nOKqYC6i4KxudWOi4kBTinZXQBR06cgssbSLrCF5lUhcxAxMxOqonB5SQdn0ELtT1UteUtq7ebDAQi1WJZChWeL3nGsOKv3Hyh0kp7hVfbx3AtLrm9RI8HoOmO7XuJJT4jFqYb6Tz9X41nXBaRcoaBnX/QTusSOX3/ijErpNZtVhwtzic/8bHrj5PkykkQovqV8Sr3WvgEtuQKKhU0mje1AOpCaszXP2/Wf0IAKqKzigfkE/AaTZzYjE4nYyMyAIMN+XxN5MCEzrVHTAj1iqJUjzdx/uMSJBp6ryUjkd5bczhjyxeqf+kowN22efe9hz0+nkhVEqJHjp6IhTVmKGB2uG16nzuW9b9G11bq0s2dICyaCM04WnOSPZ4iWLvEqPVHplQt1cMq/xI5CeUjGp9byxhnAqXSOpEoMKWLcJ4rpeRdRaiHZUYSAWVQTwqp9Cj0EAZUEAdlPAJMbhce7umg0dlGKCcvemiKgVoYzgCrJqvvOzlVGbFqnFKVfFEs124tYqOcStwKNq+3CB1dhTE2o+BornBMrLWCfZuvF2KEsrFF14tS7Hkt7Jz0O6I0QlmPedKX4nPkf/YqPc/PFZa772au1yD9+AXDH2XPnlP4vjoPoqSz4Iqw59NkHqELTceJ7T7KJ2wF5ELrldCXWJlkVVL+RiSdN8Wkh5lVSJj0HwjPifW/Ng0tQYkt9PlN/bmt/nRdc13nYHwS/+wZ4Pk0IE/IADOKWQ+qdfq9EMBPWsAgeXUbVnmGQYtfspTi/T1XAnYpkOjqzgqCSzaT7bU44jWewKvrab+Igg7VT1OuvDA1pJHX/DgutbGFZVi9ZWn5Oxl3gSzWikeflXPd3yLGR6SSN/yno2w1CERorCFEeAUSBD3bmfRCACvHXq1mNi7LHZePe7gLioRGoTLQIrRcx7LgVlWgrHZT5YGpwKdLiNEPmuDk1bb3Tqys4KvhT6nuEm/lM3P0nnkwAft+nkfjTHBGggqTquGFAA/gJ7wIKJdwTdHQoZeIw3dD/8aDnkwQ1ZKrsbQ9yi0olae032IdGMAAZ/2KYysNb38LgzTCq4bTcj2YRKMa2O4TrhIgIntqSKcsuUorHp5TT+DddAEGzB8g9Qi4P8FYrxqwCmKkMAmm9WnUun227LJVQ2B1BX4I9ZAbxABNtRAXz1N66jRcq78BRPzBcMUUUlQDqDeyFAsXqbMOHnPNV77Q714jQhVE/zZUIItJ+Lf7Q3SMAX5trqKjZ03EBp8btyjuJFPRkPd3EyeAv34o6CmJ7HizlER/1KnGPPqDExdg+jPm3QEwGXeJn2p1vrjo6t3YK361LqbsxmXgFmUodT+XI6qeQ9QZY9ekWWr+bUKpeAHkmZb/6RUlMWcvlAmcKIS7QsU1zomrMsM4Iq9ZdV05pLmoQjuBXyY+YIfL72qAYCMGh13yxhD3RTwPTrXkFSvhLYQ2LDmYez0Ch2ip995c5TOugBBndzo6MKCM7I4lvqYUG9tD0rxjybv9SDAHd6ulFuGLqtjiUNxGrdLJGyLwAxuvXPkEoe767WAzs6JkaTUOGpetwaXaK0DFNviPDc=\"\n}",
+                              "options": {
+                                "raw": {
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseApiUrl}}/v3/tools/private-key",
+                              "host": ["{{baseApiUrl}}"],
+                              "path": ["v3", "tools", "private-key"]
+                            },
+                            "description": "Resolve the decrypted private key based on the encrypted private data provided."
+                          },
+                          "response": []
+                        },
+                        {
+                          "name": "Supported Methods",
+                          "request": {
+                            "method": "OPTIONS",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseApiUrl}}/v3/tools/private-key",
+                              "host": ["{{baseApiUrl}}"],
+                              "path": ["v3", "tools", "private-key"]
+                            },
+                            "description": "Get the supported methods of this operation."
+                          },
+                          "response": []
+                        }
+                      ],
+                      "description": "Resolve the decrypted private key based on the encrypted private data provided."
+                    }
+                  ],
+                  "description": "The new version created since V3."
+                }
+              ],
+              "description": "The operations related to development tools."
+            }
+          ],
+          "description": "The main operations."
+        },
+        {
+          "name": "Management",
+          "item": [
+            {
+              "name": "Get Specification by Version and Format",
+              "item": [
+                {
+                  "name": "Operation",
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseApiUrl}}/management/specifications/:format/:version",
+                      "host": ["{{baseApiUrl}}"],
+                      "path": [
+                        "management",
+                        "specifications",
+                        ":format",
+                        ":version"
+                      ],
+                      "variable": [
+                        {
+                          "key": "format",
+                          "value": "json",
+                          "type": "string",
+                          "description": "The format of the specification."
+                        },
+                        {
+                          "key": "version",
+                          "value": "1",
+                          "type": "string",
+                          "description": "Optional, the version of the API, retuens management API if not provided."
+                        }
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Supported Methods",
+                  "request": {
+                    "method": "OPTIONS",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseApiUrl}}/management/specifications/:format/:version",
+                      "host": ["{{baseApiUrl}}"],
+                      "path": [
+                        "management",
+                        "specifications",
+                        ":format",
+                        ":version"
+                      ],
+                      "variable": [
+                        {
+                          "key": "format",
+                          "value": "json",
+                          "description": "The format of the specification."
+                        },
+                        {
+                          "key": "version",
+                          "value": "1",
+                          "description": "Optional, the version of the API, retuens management API if not provided."
+                        }
+                      ]
+                    },
+                    "description": "Get the supported methods of this operation."
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Header Info",
+                  "request": {
+                    "method": "HEAD",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseApiUrl}}/management/specifications/:format/:version",
+                      "host": ["{{baseApiUrl}}"],
+                      "path": [
+                        "management",
+                        "specifications",
+                        ":format",
+                        ":version"
+                      ],
+                      "variable": [
+                        {
+                          "key": "format",
+                          "value": "json",
+                          "description": "The format of the specification."
+                        },
+                        {
+                          "key": "version",
+                          "value": "1",
+                          "description": "Optional, the version of the API, retuens management API if not provided."
+                        }
+                      ]
+                    },
+                    "description": "Get the header info of this operation."
+                  },
+                  "response": []
+                }
+              ],
+              "description": "Get OpenAPI specifications by version and format."
+            },
+            {
+              "name": "Get API Info",
+              "item": [
+                {
+                  "name": "Operation",
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseApiUrl}}/management/specifications",
+                      "host": ["{{baseApiUrl}}"],
+                      "path": ["management", "specifications"]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Supported Methods",
+                  "request": {
+                    "method": "OPTIONS",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseApiUrl}}/management/specifications",
+                      "host": ["{{baseApiUrl}}"],
+                      "path": ["management", "specifications"]
+                    },
+                    "description": "Get the supported methods of this operation."
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Header Info",
+                  "request": {
+                    "method": "HEAD",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseApiUrl}}/management/specifications",
+                      "host": ["{{baseApiUrl}}"],
+                      "path": ["management", "specifications"]
+                    },
+                    "description": "Get the header info of this operation."
+                  },
+                  "response": []
+                }
+              ],
+              "description": "Provides version info for this API app."
+            }
+          ],
+          "description": "Management related operations."
+        }
+      ],
+      "description": "The API operations."
+    },
+    {
+      "name": "Documentation",
+      "item": [
+        {
+          "name": "Main Spec - V3 - YAML",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseApiUrl}}/management/specifications/yaml/3",
+              "host": ["{{baseApiUrl}}"],
+              "path": ["management", "specifications", "yaml", "3"]
+            },
+            "description": "Get OpenAPI document in YAML format."
+          },
+          "response": []
+        },
+        {
+          "name": "Main Spec - V3 - JSON",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseApiUrl}}/management/specifications/json/3",
+              "host": ["{{baseApiUrl}}"],
+              "path": ["management", "specifications", "json", "3"]
+            },
+            "description": "Get OpenAPI document in JSON format."
+          },
+          "response": []
+        },
+        {
+          "name": "Main Spec - V2 - YAML",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseApiUrl}}/management/specifications/yaml/2",
+              "host": ["{{baseApiUrl}}"],
+              "path": ["management", "specifications", "yaml", "2"]
+            },
+            "description": "Get OpenAPI document in YAML format."
+          },
+          "response": []
+        },
+        {
+          "name": "Main Spec - V2 - JSON",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseApiUrl}}/management/specifications/json/2",
+              "host": ["{{baseApiUrl}}"],
+              "path": ["management", "specifications", "json", "2"]
+            },
+            "description": "Get OpenAPI document in JSON format."
+          },
+          "response": []
+        },
+        {
+          "name": "Main Spec - V1 - YAML",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseApiUrl}}/management/specifications/yaml/1",
+              "host": ["{{baseApiUrl}}"],
+              "path": ["management", "specifications", "yaml", "1"]
+            },
+            "description": "Get OpenAPI document in YAML format."
+          },
+          "response": []
+        },
+        {
+          "name": "Main Spec - V1 - JSON",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseApiUrl}}/management/specifications/json/1",
+              "host": ["{{baseApiUrl}}"],
+              "path": ["management", "specifications", "json", "1"]
+            },
+            "description": "Get OpenAPI document in JSON format."
+          },
+          "response": []
+        },
+        {
+          "name": "Management Spec - YAML",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseApiUrl}}/management/specifications/yaml",
+              "host": ["{{baseApiUrl}}"],
+              "path": ["management", "specifications", "yaml"]
+            },
+            "description": "Get OpenAPI document in YAML format."
+          },
+          "response": []
+        },
+        {
+          "name": "Management Spec - JSON",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseApiUrl}}/management/specifications/json",
+              "host": ["{{baseApiUrl}}"],
+              "path": ["management", "specifications", "json"]
+            },
+            "description": "Get OpenAPI document in JSON format."
+          },
+          "response": []
+        },
+        {
+          "name": "Helper - Themes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseSwaggerUrl}}/themes/:theme",
+              "host": ["{{baseSwaggerUrl}}"],
+              "path": ["themes", ":theme"],
+              "variable": [
+                {
+                  "key": "theme",
+                  "value": "material",
+                  "description": "The name of the theme."
+                }
+              ]
+            },
+            "description": "Provide themes for Swagger UI"
+          },
+          "response": []
+        }
+      ],
+      "description": "Get OpenAPI documents in JSON or YAML format."
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "exec": [""]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "exec": [""]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://localhost:2025",
+      "type": "string"
+    },
+    {
+      "key": "baseSwaggerUrl",
+      "value": "https://localhost:2025/swagger",
+      "type": "string"
+    },
+    {
+      "key": "baseApiUrl",
+      "value": "https://localhost:2025/api",
+      "type": "string"
+    }
+  ]
+}

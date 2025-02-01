@@ -2,14 +2,29 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "console": "integratedTerminal",
-      "internalConsoleOptions": "neverOpen",
       "name": "Local debug",
+      "type": "node",
       "request": "launch",
-      "restart": true,
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "openOnSessionStart",
+      "preLaunchTask": "npm: prestart",
       "runtimeExecutable": "nodemon",
+      "args": ["--quiet"],
       "skipFiles": ["<node_internals>/**"],
-      "type": "node"
+      "restart": true,
+      "serverReadyAction": {
+        "pattern": "Document: (.*)",
+        "killOnServerStop": true,
+        "uriFormat": "%s",
+        "action": "openExternally"
+      }
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch Active File",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${file}"
     }
   ]
 }

@@ -1,0 +1,5 @@
+### Get access token from CIAM via the internal app (nodejs API) for the subsequent API operations
+# @name GetAccessTokenFromCIAMInternal
+@reuse = true
+GET {{helperApiBaseUrl}}/security/token/{{environmentName}}?reuse={{reuse}} HTTP/1.1
+Accept: application/json

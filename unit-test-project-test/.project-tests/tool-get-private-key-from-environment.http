@@ -1,0 +1,4 @@
+### Get the decrypted private key from the current environment
+# @name GetPrivateKeyFromEnvironment
+GET {{helperApiBaseUrl}}/tools/private-key/{{environmentName}} HTTP/1.1
+Accept: application/json
